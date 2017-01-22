@@ -1,0 +1,50 @@
++at-mobile
+  .container__sidebar
+    box-sizing: border-box
+    width: 200px
+    height: 100%
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 2
+    transform: translate3d(-200px, 0, 0)
+    transition: transform 0.2s ease-in-out
+    padding: 20px
+
+    .container.is-open &
+      transform: translate3d(0px, 0, 0);
+
+  .container__body
+    transform: translate3d(0px, 0, 0)
+    transition: transform 0.2s ease-in-out
+
+    .container.is-open &
+      transform: translate3d(200px, 0, 0)
+
++at-desk
+  .container
+    position: fixed
+    left: 0
+    top: 0
+    right: 0
+    bottom: 0
+    display: flex
+    padding: 0
+
+  .container__mobile-header
+    display: none
+
+  .container__sidebar
+    display: block
+    width: 300px
+    box-sizing: border-box
+    background-color: $light-bg-color
+    overflow: auto
+
+  .container__body
+    background-color: white
+    overflow: auto
+    flex: 1
+    box-shadow: -3px 0 2px rgba(black, 0.1)

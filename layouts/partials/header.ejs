@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="<%= settings.language %>">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <% if (environment === 'production') { %>
+      <link rel="stylesheet" href="/assets/all.css">
+    <% } %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="container__sidebar">
+        <div class="sidebar">
+          <h6 class="sidebar__header">
+            <a href="/"><%= settings.name %></a>
+          </h6>
+
+          <ul class="sidebar__navigation">
+            <% Object.keys(categories).forEach((cat) => { %>
+              <% pages = categories[cat] %>
+              <li class="sidebar__navigation__category">
+                <a
+                  href="<%= pages[0].path %>"
+                  <%- category === cat ? 'class="is-active"' : '' %>
+                >
+                  <%= cat %>
+                </a>
+                <ul class="sidebar__navigation__pages">
+                  <% pages.forEach((page) => { %>
+                    <li class="sidebar__navigation__page">
+                      <a
+                        href="<%= page.path %>"
+                        <%- path === page.path ? 'class="is-active"' : '' %>
+                      >
+                        <%= page.title %>
+                      </a>
+                    </li>
+                  <% }) %>
+                </ul>
+              </li>
+            <% }) %>
+          </ul>
+        </div>
+      </div>
+      <div class="container__body">
+        <div class="container__mobile-header">
+          <div class="mobile-header">
+            <div class="mobile-header__logo">
+              <a href="/">
+                <%= settings.name %>
+              </a>
+            </div>
+            <a href="#" class="mobile-header__menu" data-js="toggleSidebar"></a>
+          </div>
+        </div>
+        <div class="wrap">
