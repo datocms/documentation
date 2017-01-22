@@ -17,14 +17,14 @@
           </h6>
 
           <ul class="sidebar__navigation">
-            <% Object.keys(categories).forEach((cat) => { %>
-              <% pages = categories[cat] %>
+            <% settings.categories.forEach((cat) => { %>
+              <% pages = categories[cat.id] %>
               <li class="sidebar__navigation__category">
                 <a
                   href="<%= pages[0].path %>"
-                  <%- category === cat ? 'class="is-active"' : '' %>
+                  <%- category === cat.id ? 'class="is-active"' : '' %>
                 >
-                  <%= cat %>
+                  <%= cat.title %>
                 </a>
                 <ul class="sidebar__navigation__pages">
                   <% pages.forEach((page) => { %>

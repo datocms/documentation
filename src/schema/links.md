@@ -1,6 +1,6 @@
 ---
 layout: page.ejs
-category: Building the admin area
+category: schema
 position: 5
 title: Link fields
 ---

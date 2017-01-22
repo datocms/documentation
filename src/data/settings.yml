@@ -1,2 +1,9 @@
 name: DatoCMS Documentation
 language: en
+categories:
+  - id: overview
+    title: Overview
+  - id: schema
+    title: Building the admin area
+  - id: generators
+    title: Integrating with generators

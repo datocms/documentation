@@ -1,6 +1,6 @@
 ---
 layout: page.ejs
-category: Overview
+category: overview
 position: 1
 title: Welcome
 ---

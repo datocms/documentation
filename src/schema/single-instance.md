@@ -1,6 +1,6 @@
 ---
 layout: page.ejs
-category: Building the admin area
+category: schema
 position: 3
 title: Single instance models
 ---

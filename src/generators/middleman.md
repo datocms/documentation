@@ -1,6 +1,6 @@
 ---
 layout: page.ejs
-category: Working with static generators
+category: generators
 position: 7
 title: Middleman
 ---

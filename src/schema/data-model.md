@@ -1,6 +1,6 @@
 ---
 layout: page.ejs
-category: Building the admin area
+category: schema
 position: 1
 title: Define the schema
 ---
@@ -31,4 +31,4 @@ Each model consists of a set of <strong>fields</strong> that you define. Fields 
     
 Each field has a name and additional metadata, like validations or particular configurations to better present the field to the editor (hints, etc.). Fields in DatoCMS can also be localized, if you need to accept different values based on language.
 
-DatoCMS stores the individual pieces of content you create from a model as <strong>records</strong>, which are much like table rows in a database. Each record will contain the value set for each of the fields of the model it has been generated from.
+DatoCMS stores the individual pieces of content you create from a model as <strong>records</strong>, which are much like table rows in a database. Each record will contain, for each field of the model it has been generated from, the value inserted by the editor.
