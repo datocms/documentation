@@ -14,14 +14,19 @@ In DatoCMS you don't need to define a field for the reverse relationship (ie. th
 
 When you add a new field of type **Link** (or **Links**) to a model, DatoCMS requires you to specify, within the *Validations* tab, the models that can be referenced in the field itself:
 
+<div class="small">![foo](/images/links/2.png)</div>
 
 To let the editors select one (or more) records to link, DatoCMS will present a dropdown with auto-completion turned on:
+
+<div class="smaller">![foo](/images/links/3.png)</div>
 
 ---
 
 ### Links as "embedded forms"
 
 While this is by far the most common usage for a link field, you can also use them to achieve a totally different editing experience changing the presentation mode of the field to **Embedded form**:
+
+<div class="small">![foo](/images/links/4.png)</div>
 
 Instead of referencing existing records, the *embedded form* mode allows the editors to create new records of the specified models **within the context of a parent record**. This is useful in at least two scenarios:
 

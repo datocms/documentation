@@ -68,3 +68,52 @@
     padding: 0.3em
     border: 1px $border-color
     border-radius: 3px
+
+  img
+    display: block
+    margin: 50px
+    margin-left: -5%
+    margin-right: -5%
+    max-width: 110%
+    width: 110%
+    border-radius: 4px
+    box-shadow: 0 2px 3px rgba(black, 0.2)
+
+  .small img
+    margin-left: auto
+    margin-right: auto
+    width: 100%
+
+  .smaller img
+    margin-left: auto
+    margin-right: auto
+    width: 80%
+
+  .two
+    margin: 80px
+    margin-left: 0
+    margin-right: 0
+    width: 100%
+    display: flex
+    align-items: center
+    align-content: space-between
+
+    &:after
+      content: ""
+      display: table
+      clear: both
+
+    div
+      margin: 0
+      flex: 1
+
+      &:first-child
+        margin-right: 30px
+        position: relative
+        z-index: 2
+        transform: scale(1.2)
+
+    img
+      margin: 0
+      width: 100%
+

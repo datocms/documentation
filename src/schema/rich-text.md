@@ -7,9 +7,13 @@ title: Rich text fields
 
 Everyone hates WYSIWYG editors: developers know they produce dirty code, designers fear the introduction of unwanted styling, editors struggle to use them. Sure, DatoCMS features a WYSIWYG editor since day one, but we want to keep it simple and lightweight: you cannot add inline images or other media you could regret in the future to have added in an unstructured way.
 
-In DatoCMS you can achieve structured, rich-content editing using a specific type of field called **Rich text**. 
+In DatoCMS you can achieve structured, rich-content editing using a specific type of field called **Rich text**:
 
-The idea is to give your authors the choice to compose their content by alternating certain blocks (ie. text, images, videos, etc), which are nothing more but "low-level" models. Authors, to compose a structured content, will be able to add and reorder these blocks as they prefer:
+<div class="small">![foo](/images/rich-text/1.png)</div>
+
+The idea is to give your authors the choice to compose their content by alternating certain blocks (ie. text, images, videos, etc.), which are nothing more but "low-level" models. Authors, to compose a structured content, will be able to add and reorder these blocks as they prefer:
+
+<div class="small">![foo](/images/rich-text/4.png)</div>
 
 This gives authors a lot of freedom to organise their content, much like Medium editor does, while keeping the content clean and structured:
 
@@ -26,7 +30,9 @@ Suppose we have an *Article* model, and we want to add a Rich text field to mana
 
 #### Create the "building blocks"
 
-To achieve this result, first you need to create a different model for each one of these blocks. The *Quote* model, for example, will be made of two fields: one containing the actual quote, the other containing the author:
+To achieve this result, first you need to create a different model for each one of these blocks. The *Quote* model, for example, will be made of two fields: one containing the actual quote, the other containing the author.
+
+<div class="smaller">![foo](/images/rich-text/2.png)</div>
 
 #### Add the Rich text to your model
 
@@ -34,6 +40,7 @@ Now that the basic blocks are ready, we can finally select the Article model, an
 
 Let's name it "Content", and in the "Validations" tab, make sure to select the low-level models you previously created:
 
+<div class="small">![foo](/images/rich-text/3.png)</div>
 
 #### Hiding "building-block" models from the navigation bar
 
