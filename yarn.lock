@@ -1191,7 +1191,7 @@ debug@~2.0.0, debug@2.0.0:
   dependencies:
     ms "0.6.2"
 
-debug@~2.2.0:
+debug@~2.2, debug@~2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.2.0.tgz#f87057e995b1a1f6ae6a4960664137bc56f039da"
   dependencies:
@@ -1296,6 +1296,10 @@ enhanced-resolve@~0.9.0:
     graceful-fs "^4.1.2"
     memory-fs "^0.2.0"
     tapable "^0.1.8"
+
+entities@~1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.1.tgz#6e5c2d0a5621b5dadaecef80b90edfb5cd7772f0"
 
 errno@^0.1.3:
   version "0.1.4"
@@ -1751,6 +1755,10 @@ hawk@~3.1.3:
 he@1.1.x:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/he/-/he-1.1.0.tgz#29319d49beec13a9b1f3c4f9b2a6dde4859bb2a7"
+
+highlight.js@~9.7.0:
+  version "9.7.0"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.7.0.tgz#e7a926bf3079c65b2ae50314878e456a009b4aac"
 
 hoek@2.x.x:
   version "2.16.3"
@@ -2364,6 +2372,14 @@ metalsmith-metadata@^0.0.4:
   resolved "https://registry.yarnpkg.com/metalsmith-metadata/-/metalsmith-metadata-0.0.4.tgz#d3b07259c66a0cd3c61850d5e6323a25b2c1080e"
   dependencies:
     js-yaml "^3.2.7"
+
+metalsmith-metallic:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/metalsmith-metallic/-/metalsmith-metallic-2.0.1.tgz#eb4752d22fbda2e58e6a8b239168c5482f76c32f"
+  dependencies:
+    debug "~2.2"
+    entities "~1.1"
+    highlight.js "~9.7.0"
 
 metalsmith-pagination@^1.4.0:
   version "1.4.0"

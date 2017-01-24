@@ -7,6 +7,7 @@ const watch = require('metalsmith-watch')
 const collectionMetadata = require('metalsmith-collection-metadata')
 const msIf = require('metalsmith-if');
 const htmlMinifier = require("metalsmith-html-minifier");
+const metallic = require('metalsmith-metallic');
 const sortOn = require('sort-on');
 
 const marked = require('marked');
@@ -33,6 +34,7 @@ Metalsmith(__dirname)
   .use(metadata({
     settings: 'data/settings.yml'
   }))
+  .use(metallic())
   .use(markdown())
   .use(path({ baseDirectory: '/', directoryIndex: 'index.html' }))
   .use((files, metalsmith, done) => {
