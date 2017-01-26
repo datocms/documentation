@@ -5,7 +5,7 @@ position: 3
 title: Single instance models
 ---
 
-Real-world websites have often pages which don't resemble any other (eg. an *About us* section, or even the homepage). 
+Real-world websites have often pages which don't resemble any other (eg. the *About us* page, or even the homepage). 
 
 If you want to allow the editors to change their content, you can create a <strong>Single-instance</strong> model: 
 

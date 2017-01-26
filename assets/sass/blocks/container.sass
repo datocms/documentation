@@ -1,7 +1,7 @@
 +at-mobile
   .container__sidebar
     box-sizing: border-box
-    width: 200px
+    width: 250px
     height: 100%
     position: fixed
     top: 0
@@ -9,19 +9,16 @@
     bottom: 0
     left: 0
     z-index: 2
-    transform: translate3d(-200px, 0, 0)
+    transform: translate3d(-250px, 0, 0)
     transition: transform 0.2s ease-in-out
-    padding: 20px
+    background-color: $light-bg-color
+    box-shadow: 3px 0 10px rgba(black, 0.2)
+
+    .sidebar__header
+      display: none
 
     .container.is-open &
       transform: translate3d(0px, 0, 0);
-
-  .container__body
-    transform: translate3d(0px, 0, 0)
-    transition: transform 0.2s ease-in-out
-
-    .container.is-open &
-      transform: translate3d(200px, 0, 0)
 
 +at-desk
   .container

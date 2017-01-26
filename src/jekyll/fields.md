@@ -17,7 +17,7 @@ In this case, the field ID is `title`, so we can use it as a method on the recor
 ```ruby
 blog_post = dato.blog_posts.first     # get the first blog post of the collection
 
-puts blog_post.title                  # => "Hello world!"
+blog_post.title                       # => "Hello world!"
 ```
 
 Each record also exposes some additional methods you can use:
@@ -53,6 +53,84 @@ blog_post.to_hash             # returns an hash containing the above, plus all t
 
 
 Most field types return scalar values (integers, booleans, strings, etc.), but some other return more complex structures.
+
+---
+
+### File attachment fields
+
+
+*File attachment* fields expose the following methods:
+
+```ruby
+blog_post.attachment.size      # returns the filesize in bytes:
+                               # => 1489134
+
+blog_post.attachment.format    # returns the extension:
+                               # => "pdf"
+
+blog_post.attachment.url       # returns the file URL:
+                               # => "https://dato-images.imgix.net/123/12345-report.pdf"
+
+blog_post.attachment.to_hash   # returns an hash containing all the above:
+                               #
+                               # => {
+                               #   size: 1489134,
+                               #   format: "pdf",
+                               #   url: "https://dato-images.imgix.net/123/12345-report.pdf"
+                               # }
+```
+
+---
+
+### Image fields
+
+*Image fields* share all the methods of *file attachment* fields, but they also expose some additional methods:
+
+```ruby
+blog_post.cover_image.size       # returns the filesize in bytes:
+                                 # => 168131
+
+blog_post.cover_image.format     # returns the extension:
+                                 # => "png"
+
+blog_post.cover_image.width      # returns the image width:
+                                 # => 800
+
+blog_post.cover_image.height     # returns the image height:
+                                 # => 600
+
+blog_post.cover_image.alt        # returns the image alternative text:
+                                 # => "Heart icon"
+
+blog_post.cover_image.title      # returns the image title:
+                                 # => "We love our clients"
+
+blog_post.cover_image.url        # returns the file URL:
+                                 # => "https://dato-images.imgix.net/123/12345-heart.png"
+
+blog_post.cover_image.to_hash    # returns an hash containing all the above:
+                                 #
+                                 # => {
+                                 #   size: 168131,
+                                 #   format: "png",
+                                 #   width: 800,
+                                 #   height: 600,
+                                 #   url: "https://dato-images.imgix.net/123/12345-heart.png"
+                                 # }
+```
+
+---
+
+### Image gallery fields
+
+*Image gallery* fields simply return an array of image objects:
+
+```ruby
+blog_post.gallery.each do |image|
+  image.title   # => "We love our clients"
+  image.url     # => "https://dato-images.imgix.net/123/12345-heart.png"
+end
+```
 
 ---
 
@@ -98,3 +176,24 @@ blog_post.video.to_hash        # => {
 
 ---
 
+### SEO meta tags fields
+
+*SEO meta tags* fields expose the following methods (although it's far easier to generate SEO meta tags [using the `.seo_meta_tags` method](/jekyll/seo.html):
+
+```ruby
+blog_post.seo.title         # => "Article title"
+blog_post.seo.description   # => "Lorem ipsum dolor sit amet, consectetur..."
+blog_post.seo.image         # => returns a full image object (see `Media fields` chapter)
+
+blog_post.seo.to_hash       # => {
+                            #   title: "Article title",
+                            #   description: "Lorem ipsum dolor sit amet, consectetur...",
+                            #   image: {
+                            #     size: 168131,
+                            #     format: "png",
+                            #     width: 800,
+                            #     height: 600,
+                            #     url: "https://dato-images.imgix.net/123/12345-heart.png"
+                            #   }
+                            # }
+```

@@ -17,17 +17,25 @@
 
 .sidebar__navigation__category
   padding: 20px
-  border-bottom: 1px solid $border-color
+  padding-bottom: 0
 
   > a
-    padding-bottom: 10px
-
     &:hover
       color: $base-body-color
 
-    &.is-active
+  .sidebar__navigation__pages
+    display: none
+
+  &.is-active
+    > a
       color: $base-body-color
       font-weight: 500
+
+    .sidebar__navigation__pages
+      display: block
+
+.sidebar__navigation__pages
+  padding-top: 10px
 
 .sidebar__navigation__page
   padding-left: 20px

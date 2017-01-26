@@ -62,20 +62,42 @@ create_post "_posts/article.md" do
 end
 ```
 
-The final step is to start generating these files with data coming from DatoCMS. An object called `dato` is available for you exactly for this purpose:
+If you need to place a collection of posts within a folder, you can use the `directory` method, so that every time the `dump` command is executed, previous content of the directory will be erased:
+
+```ruby
+directory "_posts" do
+  10.times do |i|
+    create_post "article-#{i}.md" do
+      frontmatter(:yaml, { title: "Article #{i}", category: [ "Random" ] })
+      content("Lorem **ipsum dolor sit amet**, consectetur adipiscing elit.")
+    end
+  end
+end
+```
+
+Now that you know how you can create local files, the final step is to start generating them with data coming from DatoCMS. An object called `dato` is available for you exactly for this purpose:
 
 ```ruby
 # let's iterate over the "Blog post" records...
 dato.blog_posts.each do |article|
 
-  # ...and create a markdown file for each one of them!
-  create_post "_posts/#{article.slug}.md" do
-    frontmatter(:yaml, { title: article.title, category: article.categories.map(&:name) })
-    content(article.content)
+  # ...and inside a directory...
+  directory "_posts" do
+
+    # ...create a markdown file for each one of them!
+    create_post "#{article.slug}.md" do
+      frontmatter(
+        :yaml,
+        title: article.title,
+        category: article.categories.map(&:name)
+      )
+
+      content(article.content)
+    end
   end
 end
 ```
 
 Once your `dato.config.rb` is ready, just run the `dato dump` command: you should see your Jekyll project populated with content. Run `jekyll serve` and enjoy!
 
-That's just a quick tour: learn all the details about how to access your records inside your config file in the following sections.
+Obviously, that's just a quick tour: you can learn all the details about how to access your records inside your config file in the following sections.

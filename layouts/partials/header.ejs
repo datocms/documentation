@@ -19,11 +19,8 @@
           <ul class="sidebar__navigation">
             <% settings.categories.forEach((cat) => { %>
               <% pages = categories[cat.id] %>
-              <li class="sidebar__navigation__category">
-                <a
-                  href="<%= pages[0].path %>"
-                  <%- typeof(category) === "string" && category === cat.id ? 'class="is-active"' : '' %>
-                >
+              <li class="sidebar__navigation__category <%- typeof(category) === "string" && category === cat.id ? ' is-active' : '' %>">
+                <a href="<%= pages[0].path %>">
                   <%= cat.title %>
                 </a>
                 <ul class="sidebar__navigation__pages">

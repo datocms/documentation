@@ -9,7 +9,7 @@ Here's the different methods you can use inside your `dato.config.rb` file to re
 
 ### Find a record by ID
 
-If you already know the ID of the record you need to access, just use the `dato#find` method:
+If you already know the ID of the record you need to access, just use the `dato.find` method:
 
 ```ruby
 # returns the record with ID 3411

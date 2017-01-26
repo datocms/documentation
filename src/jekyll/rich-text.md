@@ -16,13 +16,13 @@ A rich-text field works much like a *multiple link* field, as it returns the arr
 ```ruby
 blog_post.content.each do |record|
   if record.item_type.api_key == "blog_post_text_block"
-    puts record.text
+    record.text
   elsif record.item_type.api_key == "blog_post_quote_block"
-    puts record.quote
-    puts record.author
+    record.quote
+    record.author
   else
     record.gallery.each do |image|
-      puts image.url
+      image.url
     end
   end
 end

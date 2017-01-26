@@ -5,9 +5,7 @@ title: Managing SEO
 position: 9
 ---
 
-### Managing SEO meta tags
-
-Given a record object, we make it very easy to build all the meta tags related to a record with the `.seo_meta_tags` method:
+Given a record object, you can obtain its title, description, [OpenGraph](http://ogp.me/) and [Twitter card](https://dev.twitter.com/cards/overview) meta tags with the `.seo_meta_tags` method:
 
 ```ruby
 blog_post.seo_meta_tags
@@ -33,9 +31,68 @@ blog_post.seo_meta_tags
 # ]
 ```
 
-Meta tags are generated from the values contained in the record's *SEO meta tags* field and  the global SEO settings for the administrative area. If the record doesn't have a *SEO meta tags field*, it tries to guess reasonable values inspecting the other fields of the record (single-line strings and images).
+These meta tags are generated from record's *SEO meta tags* field and the global SEO settings for the administrative area. If the record doesn't have a *SEO meta tags* field, the method tries to guess reasonable values inspecting the other fields of the record (single-line strings and images).
+
+---
+
+### Favicon meta tags
+
+Similarly, you can also get desktop, iOS, Android and Windows Phone favicon meta tags:
 
 ```ruby
+dato.site.favicon_meta_tags
+
+```
+
+---
+
+### How to use meta tags in your Jekyll website
+
+In your `dato.config.rb` file you can simply dump all the tags in the frontmatter:
+
+```ruby
+# dato.config.rb
+
+dato.blog_posts.each do |article|
+  directory "_posts" do
+    create_post "#{article.slug}.md" do
+      frontmatter(
+        :yaml,
+        layout: "article",
+        title: article.title,
+        seo_meta_tags: article.seo_meta_tags
+      )
+
+      content(article.content)
+    end
+  end
+end
+```
+
+And in your Jekyll views, transform the data into proper HTML tags:
+
+```html
+# _layouts/article.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- ... -->
+  {% for tag in page.seo_meta_tags %}
+    {{ tag | tagify }}
+  {% endfor %}
+</head>
+<body>
+  <h1>{{ page.title }}</h1>
+</body>
+</html>
+```
+
+You can place the `tagify` liquid filter inside your project `_plugins` directory:
+
+```ruby
+# _plugins/tagify.rb
+
 module Jekyll
   module TagifyFilter
     def tagify(input)
@@ -56,25 +113,3 @@ end
 
 Liquid::Template.register_filter(Jekyll::TagifyFilter)
 ```
-
-If the result of `.seo_meta_tags` doesn't satisfy your needs, you can manually generate meta tags accessing directly to the raw values of any *SEO meta tag* field:
-
-```ruby
-blog_post.seo.title         # => "Article title"
-blog_post.seo.description   # => "Lorem ipsum dolor sit amet, consectetur..."
-blog_post.seo.image         # => returns a full image object (see `Media fields` chapter)
-
-blog_post.seo.to_hash       # => {
-                            #   title: "Article title",
-                            #   description: "Lorem ipsum dolor sit amet, consectetur...",
-                            #   image: {
-                            #     size: 168131,
-                            #     format: "png",
-                            #     width: 800,
-                            #     height: 600,
-                            #     url: "https://dato-images.imgix.net/123/12345-heart.png"
-                            #   }
-                            # }
-```
-
-

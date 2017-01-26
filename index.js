@@ -38,21 +38,34 @@ Metalsmith(__dirname)
   .use(markdown())
   .use(path({ baseDirectory: '/', directoryIndex: 'index.html' }))
   .use((files, metalsmith, done) => {
+    for (var fileName in files) {
+      var data = files[fileName];
+
+      if (!data || !data.copyFrom) {
+        continue;
+      }
+
+      files[fileName] = Object.assign(
+        {},
+        files[data.copyFrom],
+        data,
+        { contents: files[data.copyFrom].contents }
+      );
+    }
+    done();
+  })
+  .use((files, metalsmith, done) => {
     const metadata = metalsmith.metadata();
     metadata.categories = {};
 
     for (var fileName in files) {
       var data = files[fileName];
 
-      if (!data) {
+      if (!data || !data.category) {
         continue;
       }
 
       const { category } = data;
-
-      if (!category) {
-        continue;
-      }
 
       metadata.categories[category] = metadata.categories[category] || [];
       metadata.categories[category].push(data);

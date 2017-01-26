@@ -6,6 +6,6 @@ categories:
   - id: schema
     title: Building the admin area
   - id: jekyll
-    title: Jekyll
-  - id: generators
-    title: Integrating with generators
+    title: Integrating with Jekyll
+  - id: middleman
+    title: Integrating with Middleman

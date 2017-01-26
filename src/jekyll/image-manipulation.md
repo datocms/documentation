@@ -1,0 +1,21 @@
+---
+layout: page.ejs
+category: jekyll
+title: Image manipulation
+position: 6
+---
+
+Every image/file you upload in DatoCMS is stored on [Imgix](https://www.imgix.com/), a super-fast CDN optimized for image delivery. 
+
+By adding some parameters to your image URL, you can enhance, resize and crop images, compress them and change format for better performance, create complex compositions, and extract useful metadata. The transformations happen on-the-fly and get cached on the CDN as well for future reuse.
+
+#### Example
+
+If you want to resize your image and convert it to JPG format, you just need to add `?w=800&h=600&fm=jpg` at the end of the URL. The `.url` method makes it easy to generate these kind of URLs, by simply passing an hash of transformations as argument:
+
+```ruby
+blog_post.cover_image.url(w: 800, h: 600, fm: :jpg)
+# => "https://dato-images.imgix.net/123/12345-heart.png?w=800&h=600&fm=jpg"
+```
+
+Take a look at [Imgix's Image API Reference](https://docs.imgix.com/apis/url) page to see all the transformations available.
