@@ -1,7 +1,7 @@
 ---
 layout: page.ejs
 category: jekyll
-title: Localizations
+title: Localization
 position: 8
 ---
 
