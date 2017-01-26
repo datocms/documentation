@@ -35,6 +35,28 @@ blog_post.seo_meta_tags
 
 Meta tags are generated from the values contained in the record's *SEO meta tags* field and  the global SEO settings for the administrative area. If the record doesn't have a *SEO meta tags field*, it tries to guess reasonable values inspecting the other fields of the record (single-line strings and images).
 
+```ruby
+module Jekyll
+  module TagifyFilter
+    def tagify(input)
+      name = input["tag_name"]
+      content = input["content"]
+
+      attributes = input.fetch("attributes", {}).
+        map { |k, v| %Q(#{k}="#{CGI::escapeHTML(v)}") }
+
+      if content.nil?
+        "<#{[name, attributes].flatten.compact.join(' ')}>"
+      else
+        "<#{[name, attributes].flatten.compact.join(' ')}>#{content}</#{name}>"
+      end
+    end
+  end
+end
+
+Liquid::Template.register_filter(Jekyll::TagifyFilter)
+```
+
 If the result of `.seo_meta_tags` doesn't satisfy your needs, you can manually generate meta tags accessing directly to the raw values of any *SEO meta tag* field:
 
 ```ruby
