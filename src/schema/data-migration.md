@@ -15,6 +15,10 @@ Suppose you have an *Article* model, and you already have a number of articles s
 
 Well, the existing articles are now suddenly invalid: that is, the data they contain does not respect the new schema. 
 
+---
+
+### Migration rules
+
 The way DatoCMS handles any of this situation follows these common-sense rules:
 
 * If you add a new validation rule to a field, all the existing records be re-checked against the new validation rules, and potentially marked as invalid;

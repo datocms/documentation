@@ -12,17 +12,19 @@ Each administrative area in DatoCMS supports multiple locales, defined by the sh
   <div>![foo](/images/localization/2.png)</div>
 </div>
 
-Each Field is localized individually, so you can pick and choose which specific content needs to be translated and which not:
+Each field is localized individually, so you can pick and choose which specific content needs to be translated and which not:
 
 <div class="two">
   <div>![foo](/images/localization/3.png)</div>
   <div>![foo](/images/localization/4.png)</div>
 </div>
 
-As soon as a localized Field is present within a model, the form to edit its records will present one tab for each locale:
+As soon as a localized field is present within a model, the form to edit its records will present one tab for each locale:
 
 <div class="smaller">![foo](/images/localization/5.png)</div>
 
+---
 
+### Adding new locales along the way
 
-
+With DatoCMS you are free to add new locales at any time; just be aware that, once a new locale is added, if some validations are present on your fields, those validations will be enforced for every locale. Records already created will therefore be marked as "invalid", and you won't be able to update your records until all the validations are satisfied for all the locales. For more information, take a look at the [Data migration](/schema/data-migration.html) chapter.

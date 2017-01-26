@@ -22,7 +22,7 @@
               <li class="sidebar__navigation__category">
                 <a
                   href="<%= pages[0].path %>"
-                  <%- category === cat.id ? 'class="is-active"' : '' %>
+                  <%- typeof(category) === "string" && category === cat.id ? 'class="is-active"' : '' %>
                 >
                   <%= cat.title %>
                 </a>
