@@ -24,9 +24,26 @@ dato.blog_posts.first.title   # => "Ciao mondo!"
 You can also iterate over your locales with `I18n.available_locales`:
 
 ```ruby
-I18n.available_locales.each do |locale|
-  I18n.with_locale(locale) do
-    dato.blog_posts.first.title
+# dato.config.rb
+
+directory "_posts" do
+
+  I18n.available_locales.each do |locale|
+    I18n.locale = locale
+
+    dato.blog_posts.each do |article|
+      create_post "#{locale}-#{article.slug}.md" do
+        frontmatter(
+          :yaml,
+          title: article.title,
+          language: locale,
+          category: article.categories.map(&:name)
+        )
+
+        content(article.content)
+      end
+    end
+
   end
 end
 ```
