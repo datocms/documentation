@@ -31,13 +31,13 @@ blog_post.seo_meta_tags
 # ]
 ```
 
-These meta tags are generated from record's *SEO meta tags* field and the global SEO settings for the administrative area. If the record doesn't have a *SEO meta tags* field, the method tries to guess reasonable values inspecting the other fields of the record (single-line strings and images).
+Meta tags are generated from record's *SEO meta tags* field and the global SEO settings for the administrative area. If the record doesn't have a *SEO meta tags* field, the method tries to guess reasonable values inspecting the other fields of the record (single-line strings and images).
 
 ---
 
 ### Favicon meta tags
 
-Similarly, you can also get desktop, iOS, Android and Windows Phone favicon meta tags:
+Similarly, you can also get desktop, iOS, Android and Windows Phone favicon meta tags with the `dato_favicon_meta_tags` helper:
 
 ```ruby
 dato.site.favicon_meta_tags

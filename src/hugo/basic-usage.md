@@ -1,27 +1,30 @@
 ---
 layout: page.ejs
-category: jekyll
+category: hugo
 position: 2
 title: Basic usage
 ---
 
 ### Installation
 
-Inside your Jekyll project, you can install the `dato` gem tool running these commands:
+Assuming you have a working NodeJS environment on your machine, you can install the `datocms-client` NodeJS package running these commands inside your Hugo project:
 
 ```bash
-$ echo 'gem "dato"' >> Gemfile
-$ bundle install
+$ npm init
+$ npm install datocms-client
 ```
 
-The gem exposes a CLI tool: if everything worked correctly, you should now run `bundle exec dato` and see the help banner:
+The npm package exposes a CLI tool: if everything worked correctly, you should now run it and see the help banner:
 
 ```bash
-$ bundle exec dato
+$ ./node_modules/.bin/dato
 
-DatoCMS commands:
-  dato dump --token=TOKEN    # Dumps DatoCMS content into local files
-  dato help [COMMAND]        # Describe available commands or one specific command
+Usage:
+  dato dump [--watch] [--verbose] [--token=<apiToken>] [--config=<file>]
+  dato migrate-slugs [--token=<apiToken>] [--skip-id-prefix]
+  dato check
+  dato -h | --help
+  dato --version
 ```
 
 The main command the `dato` CLI tool exposes is `dump`, which is the one you're going to use to fetch the records from our API and transform them into local files.
@@ -29,7 +32,7 @@ The main command the `dato` CLI tool exposes is `dump`, which is the one you're 
 You can invoke the command like this:
 
 ```bash
-$ bundle exec dato dump --token=SITE_READONLY_API_TOKEN
+$ ./node_modules/.bin/dato dump --token=SITE_READONLY_API_TOKEN
 ```
 
 You can find your API token in the *Admin area > API tokens* section:
@@ -42,7 +45,7 @@ Instead of specifying the API token as a parameter, you can pass it as an enviro
 
 ```bash
 $ export DATO_API_TOKEN=abc123
-$ bundle exec dato dump
+$ ./node_modules/.bin/dato dump
 ```
 
 The CLI tool also loads environment variables from a `.env` file, so you can place the token there and forget about it (just make sure not to publish your `.env` file on Github):
@@ -50,22 +53,24 @@ The CLI tool also loads environment variables from a `.env` file, so you can pla
 ```bash
 $ echo '.env' >> .gitignore
 $ echo 'DATO_API_TOKEN=abc123' >> .env
-$ bundle exec dato dump
+$ ./node_modules/.bin/dato dump
 ```
 
 ---
 
 ### The config file
 
-The `dump` command will read a file `dato.config.rb` (or the file passed by the `--config` option). This file should contain instructions to transform the content stored remotely in DatoCMS into local files.
+The `dump` command will read a file `dato.config.js` (or the file passed by the `--config` option). This file should export a function that instructs how to transform the content stored remotely on DatoCMS into local files:
 
 Let's watch a simple example to get started:
 
 ```ruby
-# dato.config.rb
+// dato.config.js
 
-content = { hello: "world" }
-create_data_file("_data/foobar.yml", :yaml, content)
+module.exports = (dato, root, i18n) => {
+  const content = { hello: "world" }
+  root.create_data_file("_data/foobar.yml", :yaml, content)
+}
 ```
 
 Here, `create_data_file` is a method made available to you that can generate YAML/TOML/JSON files. It's perfect to generate Jekyll data files.
@@ -115,6 +120,6 @@ dato.blog_posts.each do |article|
 end
 ```
 
-Once your `dato.config.rb` is ready, just run the `dato dump` command: you should see your Jekyll project populated with content. Run `jekyll serve` and enjoy!
+Once your `dato.config.js` is ready, just run the `dato dump` command: you should see your Jekyll project populated with content. Run `jekyll serve` and enjoy!
 
 Obviously, that's just a quick tour: you can learn all the details about how to access your records inside your config file in the following sections.

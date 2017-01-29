@@ -7,5 +7,7 @@ categories:
     title: Building the admin area
   - id: jekyll
     title: Integrating with Jekyll
+  - id: hugo
+    title: Integrating with Hugo
   - id: middleman
     title: Integrating with Middleman

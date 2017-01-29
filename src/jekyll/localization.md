@@ -9,7 +9,7 @@ There is many way to handle multiple languages with Jekyll — just as an exampl
 
 Just as explained in the product overview, DatoCMS is totally agnostic in terms of static site generators: it just allows you to dump content locally, and the rest is up to you.
 
-Within your `dato.config.rb` file, you can easily switch between your administrative area locales like this:
+Within your `dato.config.rb` file, you can easily switch between your locales like this:
 
 ```ruby
 # dato.config.rb
