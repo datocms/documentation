@@ -64,62 +64,97 @@ The `dump` command will read a file `dato.config.js` (or the file passed by the 
 
 Let's watch a simple example to get started:
 
-```ruby
+```javascript
 // dato.config.js
 
 module.exports = (dato, root, i18n) => {
   const content = { hello: "world" }
-  root.create_data_file("_data/foobar.yml", :yaml, content)
+  root.createDataFile("data/foobar.yml", 'yaml', content)
 }
 ```
 
-Here, `create_data_file` is a method made available to you that can generate YAML/TOML/JSON files. It's perfect to generate Jekyll data files.
+Now run `dato dump`:
 
-You can also generate Jekyll posts and collections with the `create_post` method:
+```bash
+$ ./node_modules/.bin/dato dump
 
-```ruby
-create_post "_posts/article.md" do
-  frontmatter(:yaml, { title: "First article", category: [ "Random" ] })
-  content("Lorem **ipsum dolor sit amet**, consectetur adipiscing elit.")
-end
+✔ Fetching content from DatoCMS...
+
+* Written data/foobar.yml
 ```
 
-If you need to place a collection of posts within a folder, you can use the `directory` method, so that every time the `dump` command is executed, previous content of the directory will be erased:
+Great! In this example, `root.createDataFile()` is a method made available to you that can generate YAML/TOML/JSON files. It's perfect to generate Hugo [data files](https://gohugo.io/extras/datafiles/).
 
-```ruby
-directory "_posts" do
-  10.times do |i|
-    create_post "article-#{i}.md" do
-      frontmatter(:yaml, { title: "Article #{i}", category: [ "Random" ] })
-      content("Lorem **ipsum dolor sit amet**, consectetur adipiscing elit.")
-    end
-  end
-end
+You can also generate Hugo [posts](https://gohugo.io/content/organization/) and [types](https://gohugo.io/content/types/) with the `root.createPost()` method:
+
+```javascript
+// dato.config.js
+
+module.exports = (dato, root, i18n) => {
+  root.createPost("post/my-post.md", "yaml", {
+    frontmatter: {
+      title: "First article",
+      type: "post",
+      categories: ["random"],
+      weight: 4,
+      date: "2012-04-06",
+    },
+    content: "Lorem **ipsum dolor sit amet**, consectetur adipiscing elit."
+  });
+}
+```
+
+If you need to place a collection of posts within a folder, you can use the `root.directory` method, so that every time the `dump` command is executed, previous content of the directory will be erased:
+
+```javascript
+// dato.config.js
+
+module.exports = (dato, root, i18n) => {
+  root.directory("post", (dir) => {
+    for (let i = 0; i < 10; i++) {
+      dir.createPost(`post-${i}.md`, "yaml", {
+        frontmatter: {
+          title: `Article ${i}`,
+          type: "post",
+          categories: ["random"],
+          weight: 4,
+          date: "2012-04-06",
+        },
+        content: "Lorem **ipsum dolor sit amet**, consectetur adipiscing elit."
+      });
+    }
+  });
+}
 ```
 
 Now that you know how you can create local files, the final step is to start generating them with data coming from DatoCMS. An object called `dato` is available for you exactly for this purpose:
 
-```ruby
-# iterate over the "Blog post" records...
-dato.blog_posts.each do |article|
+```javascript
+// dato.config.js
 
-  # ...and inside a directory...
-  directory "_posts" do
+module.exports = (dato, root, i18n) => {
 
-    # ...create a markdown file for each article!
-    create_post "#{article.slug}.md" do
-      frontmatter(
-        :yaml,
-        title: article.title,
-        category: article.categories.map(&:name)
-      )
+  // inside a "post" directory...
+  root.directory("post", (dir) => {
 
-      content(article.content)
-    end
-  end
-end
+    // ...iterate over the "Blog post" records...
+    dato.blogPosts.forEach((blogPost) => {
+
+      // ...and create a markdown file for each article!
+      root.createPost(`${blogPost.slug}.md`, "yaml", {
+        frontmatter: {
+          title: blogPost.title,
+          type: "post",
+          categories: blogPost.categories.map(cat => cat.slug),
+          date: blogPost.publishedAt,
+        },
+        content: blogPost.content
+      });
+    }
+  });
+}
 ```
 
-Once your `dato.config.js` is ready, just run the `dato dump` command: you should see your Jekyll project populated with content. Run `jekyll serve` and enjoy!
+Once your `dato.config.js` is ready, just run the `dato dump` command: you should see your Jekyll project populated with content. Run `hugo -w` and enjoy!
 
 Obviously, that's just a quick tour: you can learn all the details about how to access your records inside your config file in the following sections.

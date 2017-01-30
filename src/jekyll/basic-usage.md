@@ -95,13 +95,13 @@ end
 Now that you know how you can create local files, the final step is to start generating them with data coming from DatoCMS. An object called `dato` is available for you exactly for this purpose:
 
 ```ruby
-# iterate over the "Blog post" records...
-dato.blog_posts.each do |article|
+# inside a "_posts" directory...
+directory "_posts" do
 
-  # ...and inside a directory...
-  directory "_posts" do
+  # ...iterate over the "Blog post" records...
+  dato.blog_posts.each do |article|
 
-    # ...create a markdown file for each article!
+    # ...and create a markdown file for each article!
     create_post "#{article.slug}.md" do
       frontmatter(
         :yaml,
