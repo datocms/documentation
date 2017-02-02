@@ -5,7 +5,7 @@ title: Localization
 position: 8
 ---
 
-There is many way to handle multiple languages with Jekyll — just as an example, take a look at [this guide](https://www.sylvaindurand.org/making-jekyll-multilingual/), or [this plugin](https://github.com/vwochnik/jekyll-language-plugin). 
+There are several ways to handle multiple languages with Jekyll — just as an example, take a look at [this guide](https://www.sylvaindurand.org/making-jekyll-multilingual/), or [this plugin](https://github.com/vwochnik/jekyll-language-plugin).
 
 Just as explained in the product overview, DatoCMS is totally agnostic in terms of static site generators: it just allows you to dump content locally, and the rest is up to you.
 
