@@ -5,7 +5,7 @@ position: 4
 title: Retrieve fields values
 ---
 
-Once you have obtained a record object, you can access to the value associated to a field using its *Field ID*:
+Once you have obtained a record object, you can access the value associated to a field using its *Field ID*:
 
 <div class="two">
   <div>![foo](/images/edit-field-dialog.png)</div>
