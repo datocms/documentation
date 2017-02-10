@@ -5,7 +5,9 @@ position: 1
 title: Overview
 ---
 
-**Disclaimer:** This guide assumes you already know what Middleman is and how it works. If you need some help getting started with Middleman, you can read the official [Middleman documentation](https://middlemanapp.com/basics/install/).
+<div class="note">
+**Disclaimer** This guide assumes you already know what Middleman is and how it works. If you need some help getting started with Middleman, you can read the official [Middleman documentation](https://middlemanapp.com/basics/install/).
+</div>
 
 ---
 

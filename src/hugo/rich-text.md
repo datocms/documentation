@@ -1,7 +1,7 @@
 ---
 layout: page.ejs
 title: Rich-text fields
-category: metalsmith
+category: hugo
 position: 7
 ---
 
@@ -22,8 +22,8 @@ A rich-text field works much like a [*multiple links* field](/metalsmith/links.h
 
 module.exports = (dato, root, i18n) => {
 
-  // inside a "src/articles" directory...
-  root.directory("src/articles", (articlesDir) => {
+  // inside a "content/article" directory...
+  root.directory("content/article", (articlesDir) => {
 
     // ...iterate over the "Blog post" records...
     dato.blogPosts.forEach((article) => {
@@ -32,7 +32,6 @@ module.exports = (dato, root, i18n) => {
       articlesDir.createPost(
         `${article.slug}.md`, "yaml", {
           frontmatter: { 
-            layout: 'article.ejs',
             title: article.title, 
             author: article.author.name,
             content: article.content.toMap()
@@ -44,33 +43,32 @@ module.exports = (dato, root, i18n) => {
 };
 ```
 
-Then, in your `layouts/article.ejs`, you can present it this way:
+Then, in your `layouts/article/single.html` template, you can present it this way:
 
 ```erb
 <article>
   <header>
-    <h1><%= title %></h1>
-    <p><%= author %></p>
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Params.author }}</p>
   </header>
-  <% content.forEach((record) => { %>
-    <% if (record.itemType === "blog_post_text_block") { %>
-      <div>
-        <%= record.text %>
-      </div>
-    <% } else if (record.itemType === "blog_post_quote_block") { %>
+
+  {{ range .Params.content }}
+    {{ if eq .itemType "blog_post_text_block" }}
+      {{ .text }}
+    {{ else if eq .itemType "blog_post_quote_block" }}
       <blockquote>
-        <%= record.quote %>
+        {{ .quote }}
         <footer>
-          <cite><%= record.author %></cite>
+          <cite>{{ .author }}</cite>
         </footer>
       </blockquote>
-    <% } else if (record.item_type.api_key === "blog_post_gallery_block") { %>
+    {{ else if eq .itemType "blog_post_gallery_block" }}
       <div class="gallery">
-        <% record.gallery.forEach((image) => { %>
-          <img src="<%= image.url %>" alt="<%= image.alt %>" title="<%= image.title %>" />
-        <% }) %>
+        {{ range .gallery }}
+          <img src="{{ .url }}" alt="{{ .alt }}" title="{{ .title }}" />
+        {{ end }}
       </div>
-    <% } %>
-  <% }) %>
+    {{ end }}
+  {{ end }}
 </article>
 ```

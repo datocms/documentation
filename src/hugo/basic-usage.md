@@ -91,7 +91,7 @@ You can also generate Hugo [posts](https://gohugo.io/content/organization/) and 
 // dato.config.js
 
 module.exports = (dato, root, i18n) => {
-  root.createPost("post/my-post.md", "yaml", {
+  root.createPost("content/post/my-post.md", "yaml", {
     frontmatter: {
       title: "First article",
       type: "post",
@@ -110,7 +110,7 @@ If you need to place a collection of posts within a folder, you can use the `roo
 // dato.config.js
 
 module.exports = (dato, root, i18n) => {
-  root.directory("post", (dir) => {
+  root.directory("content/post", (dir) => {
     for (let i = 0; i < 10; i++) {
       dir.createPost(`post-${i}.md`, "yaml", {
         frontmatter: {
@@ -135,7 +135,7 @@ Now that you know how you can create local files, the final step is to start gen
 module.exports = (dato, root, i18n) => {
 
   // inside a "post" directory...
-  root.directory("post", (dir) => {
+  root.directory("content/post", (dir) => {
 
     // ...iterate over the "Blog post" records...
     dato.blogPosts.forEach((blogPost) => {

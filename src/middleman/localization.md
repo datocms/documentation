@@ -26,16 +26,23 @@ activate :dato, token: 'YOUR_READ_ONLY_TOKEN'
 activate :i18n, langs: dato.available_locales
 
 dato.tap do |dato|
+  # iterate over all the administrative area languages
   dato.available_locales.each do |locale|
-    I18n.locale = locale
 
-    dato.articles.each do |article|
-      proxy(
-        "/#{locale}/articles/#{article.slug}/index.html",
-        "/templates/article.html",
-        locals: { article: article },
-        locale: locale
-      )
+    # switch to the nth locale
+    I18n.with_locale(locale) do
+
+      # iterate over the "Article" records...
+      dato.articles.each do |article|
+
+        # ...and create a proxy file for each article
+        proxy(
+          "/#{locale}/articles/#{article.slug}/index.html",
+          "/templates/article.html",
+          locals: { article: article },
+          locale: locale
+        )
+      end
     end
   end
 end

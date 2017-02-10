@@ -1,15 +1,11 @@
 ---
 layout: page.ejs
-category: metalsmith
+category: hugo
 title: Localization
 position: 8
 ---
 
-<div class="note">
-**Note** 
-
-Just as explained in the [product overview](/), DatoCMS is totally agnostic in terms of static site generators: it just allows you to dump content locally, and the rest is up to you. There are several ways to handle multiple languages with Metalsmith — just as an example, take a look at [metalsmith-multi-language](https://github.com/doup/metalsmith-multi-language) plugin, that is perfectly compatible with DatoCMS.
-</div>
+Hugo has built-in support for the creation of [multi-lingual sites](https://gohugo.io/content/multilingual/). 
 
 Within your `dato.config.js` file, you can easily switch between your locales changing the value of `i18n.locale`:
 
@@ -57,31 +53,32 @@ module.exports = (dato, root, i18n) => {
 
 Here's an complete example that creates multiple versions of your articles, one for each available locale:
 
+
 ```javascript
 // dato.config.js
 
 module.exports = (dato, root, i18n) => {
-
   // inside the "src/article" directory...
   root.directory("content/article", (articlesDir) => {
 
-    // iterate over all the administrative area languages
+    // iterate over all the available locales...
     i18n.availableLocales.forEach((locale) => {
 
       // switch to the nth locale
       i18n.withLocale(locale, () => {
 
         // iterate over the "Blog post" records...
-        dato.blogPosts.forEach((blogPost) => {
+        dato.blogPosts.forEach((article) => {
 
-          // ...and create a localized markdown file for each article!
-          articlesDir.createPost(`${blogPost.slug}_${locale}.md`, 'yaml', {
-            frontmatter: {
-              title: blogPost.title,
-              date: blogPost.publishedAt,
-            },
-            content: blogPost.content
-          });
+          // ...and create a localized markdown file for each article
+          articlesDir.createPost(
+            `${article.slug}.${locale}.md`, "yaml", {
+              frontmatter: {
+                title: article.title
+              },
+              content: article.content
+            }
+          );
         });
       });
     });
