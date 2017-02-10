@@ -1,3 +1,15 @@
+          <div class="pagination">
+            <% if (typeof(prevPage) === "object") { %>
+              <a class="pagination__prev" href="<%= prevPage.path %>">
+                <i class="fa fa-chevron-circle-left" aria-hidden="true"></i> <%= prevPage.title %>
+              </a>
+            <% } %>
+            <% if (typeof(nextPage) === "object") { %>
+              <a class="pagination__next" href="<%= nextPage.path %>">
+                <%= nextPage.title %> <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+              </a>
+            <% } %>
+            </div>
         </div>
       </div>
     </div>

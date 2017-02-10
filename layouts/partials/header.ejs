@@ -8,6 +8,11 @@
       <link rel="stylesheet" href="/assets/all.css">
     <% } %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <% if (typeof(category) === "string") { %>
+      <title><%= title %> - <%= settings.categories.find(({ id }) => id === category).title %> - DatoCMS documentation</h2>
+    <% } else { %>
+      <title><%= title %> - DatoCMS documentation</title>
+    <% } %>
   </head>
   <body>
     <div class="container">

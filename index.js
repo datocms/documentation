@@ -58,8 +58,9 @@ Metalsmith(__dirname)
     const metadata = metalsmith.metadata();
     metadata.categories = {};
 
-    for (var fileName in files) {
-      var data = files[fileName];
+    for (let fileName in files) {
+      files[fileName] = Object.assign({}, files[fileName], { filename: fileName });
+      const data = files[fileName];
 
       if (!data || !data.category) {
         continue;
@@ -73,6 +74,14 @@ Metalsmith(__dirname)
 
     Object.keys(metadata.categories).forEach(category => {
       metadata.categories[category] = sortOn(metadata.categories[category], 'position');
+      metadata.categories[category].forEach((data, index) => {
+        if (index > 0) {
+          files[data.filename] = Object.assign({}, files[data.filename], { prevPage: metadata.categories[category][index - 1] });
+        }
+        if (index < metadata.categories[category].length - 1) {
+          files[data.filename] = Object.assign({}, files[data.filename], { nextPage: metadata.categories[category][index + 1] });
+        }
+      });
     });
 
     done();
