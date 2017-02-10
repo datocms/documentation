@@ -63,7 +63,7 @@ This is the page content, yay!!
 
 Meta tags are generated from record's *SEO meta tags* field and the global SEO settings for the administrative area. If the record doesn't have a *SEO meta tags* field, the method tries to guess reasonable values by inspecting the other fields of the record (single-line strings and images).
 
-In you Metalsmith template (in this example `layouts/about.ejs`), you can generate proper HTML tags from this structure like this:
+In your Metalsmith template (in this example `layouts/about.ejs`), you can generate proper HTML tags from this structure like this:
 
 ```erb
 <html>
