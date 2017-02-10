@@ -16,4 +16,4 @@ DatoCMS offers a Ruby-based CLI tool that makes it extremely convenient to trans
 * Jekyll [posts](https://jekyllrb.com/docs/posts/) and [collections](https://jekyllrb.com/docs/collections/) (complete with YAML frontmatter);
 * Jekyll [data files](https://jekyllrb.com/docs/datafiles/).
 
-You are in charge of specifing how DatoCMS records will be dumped into these files using a Ruby config file called `dato.config.rb`.
+Once content coming from DatoCMS is dumped into local files, you are free to use Jekyll just like you're used to. You are in charge of specifing how DatoCMS records will be dumped into these files using a Ruby config file called `dato.config.rb`.

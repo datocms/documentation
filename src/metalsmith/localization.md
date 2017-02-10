@@ -7,7 +7,7 @@ position: 8
 
 Just as explained in the product overview, DatoCMS is totally agnostic in terms of static site generators: it just allows you to dump content locally, and the rest is up to you.
 
-Within your `dato.config.rb` file, you can easily switch between your locales like this:
+Within your `dato.config.js` file, you can easily switch between your locales like this:
 
 ```javascript
 // dato.config.js

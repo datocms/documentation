@@ -18,11 +18,21 @@
 
   a
     font-weight: bold
-    color: $primary-color
+    color: desaturate(darken($primary-color, 10%), 10%)
 
     code
-      color: $base-body-color
-      text-decoration: none
+      background-color: transparent
+      padding: 0
+
+  a[href*="//"]:after
+    display: inline-block
+    font: normal normal normal 14px/1 FontAwesome
+    font-size: inherit
+    text-rendering: auto
+    -webkit-font-smoothing: antialiased
+    content: "\f08e"
+    margin-left: 0.3em
+    font-size: 0.9em
 
   hr
     border: 0

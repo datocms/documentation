@@ -78,6 +78,18 @@ module.exports = (dato, root, i18n) => {
 };
 ```
 
+Now run `dato dump`:
+
+```bash
+$ ./node_modules/.bin/dato dump
+
+✔ Fetching content from DatoCMS...
+
+* Written src/data/foobar.yml
+```
+
+Great! In this example, `root.createDataFile()` is a method made available to you that can generate YAML/TOML/JSON files. It's perfect to generate Hugo [data files](https://gohugo.io/extras/datafiles/).
+
 Here, `root.createDataFile()` is a method that generates YAML/TOML/JSON files. Inside Metalsmith, you can then read this file with ie. [metalsmith-metadata](https://github.com/segmentio/metalsmith-metadata).
 
 You can also generate Markdown posts with the `root.createPost()` method:
