@@ -92,7 +92,7 @@ directory "_posts" do
 end
 ```
 
-Now that you know how you can create local files, the final step is to start generating them with data coming from DatoCMS. An object called `dato` is available for you exactly for this purpose:
+Now that you know how you can create local files, the final step is to start generating them with data coming from DatoCMS. An object called `dato` is available exactly for this purpose:
 
 ```ruby
 # inside a "_posts" directory...

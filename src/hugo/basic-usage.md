@@ -127,7 +127,7 @@ module.exports = (dato, root, i18n) => {
 }
 ```
 
-Now that you know how you can create local files, the final step is to start generating them with data coming from DatoCMS. An object called `dato` is available for you exactly for this purpose:
+Now that you know how you can create local files, the final step is to start generating them with data coming from DatoCMS. An object called `dato` is available exactly for this purpose:
 
 ```javascript
 // dato.config.js

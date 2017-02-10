@@ -13,17 +13,25 @@ Suppose our `blog_post` model has the following fields:
 In this case, `blog_post.author` will return the linked `user` record (or `null`, if the relation is empty), and `blog_post.related` will return an array of `blog_post` records.
 
 ```javascript
-blog_post.author.full_name   # => "Mark Smith"
+// dato.config.js
 
-blog_post.related.map(relatedPost => {
-  relatedPost.title         # => "Another post!"
-})
+module.exports = (dato, root, i18n) => {
+  dato.blogPosts[0].author.full_name;   // => "Mark Smith"
+
+  dato.blogPosts[0].related.forEach(relatedPost => {
+    relatedPost.title;                  // => "Another post!"
+  })
+}
 ```
 
 Use method chains to navigate deeply across your records' relationships:
 
-```
-blog_post.related.first.author.name       # => "Tom Kepler"
+```javascript
+// dato.config.js
+
+module.exports = (dato, root, i18n) => {
+  dato.blogPosts[0].related[0].author.name  // => "Tom Kepler"
+};
 ```
 
 #### Reverse lookups
@@ -31,6 +39,10 @@ blog_post.related.first.author.name       # => "Tom Kepler"
 You can easily find all the blog post for a specific author with this Javascript one-liner:
 
 ```javascript
-peter = dato.find("1413")
-dato.blogPosts.filter(blogPost => blogPost.author.id === peter.id)
+// dato.config.js
+
+module.exports = (dato, root, i18n) => {
+  const peter = dato.find("1413");
+  dato.blogPosts.filter(blogPost => blogPost.author.id === peter.id);
+}
 ```

@@ -8,7 +8,9 @@ position: 9
 Given a record object, you can obtain its title, description, [OpenGraph](http://ogp.me/) and [Twitter card](https://dev.twitter.com/cards/overview) meta tags with the `.seo_meta_tags` method:
 
 ```ruby
-blog_post.seo_meta_tags
+# dato.config.rb
+
+dato.blog_posts.first.seo_meta_tags
 
 # => [
 #   { tag_name: "title", content: "Bike Pannier - Alban Bike Bags" },
@@ -37,22 +39,52 @@ Meta tags are generated from record's *SEO meta tags* field and the global SEO s
 
 ### Favicon meta tags
 
-Similarly, you can also get desktop, iOS, Android and Windows Phone favicon meta tags with the `dato_favicon_meta_tags` helper:
+Similarly, you can also get desktop, iOS, Android and Windows Phone favicon meta tags with the `dato.site.favicon_meta_tags` helper:
 
 ```ruby
+# dato.config.rb
+
 dato.site.favicon_meta_tags
 
+# => [
+#   { tag_name:"link", attributes: { sizes: "16x16", type:"image/png", rel:"icon", href:"https://dato-images.imgix.net/72/favicon.png?w=16&h=16" } },
+#   { tag_name:"link", attributes: { sizes: "32x32", type:"image/png", rel:"icon", href:"https://dato-images.imgix.net/72/favicon.png?w=32&h=32" } },
+#   { tag_name:"link", attributes: { sizes: "96x96", type:"image/png", rel:"icon", href:"https://dato-images.imgix.net/72/favicon.png?w=96&h=96" } },
+#   { tag_name:"link", attributes: { sizes: "192x192", type:"image/png", rel:"icon", href:"https://dato-images.imgix.net/72/favicon.png?w=192&h=192" } },
+#   { tag_name:"link", attributes: { sizes: "57x57", rel:"apple-touch-icon", href:"https://dato-images.imgix.net/72/favicon.png?w=57&h=57" } },
+#   { tag_name:"link", attributes: { sizes: "60x60", rel:"apple-touch-icon", href:"https://dato-images.imgix.net/72/favicon.png?w=60&h=60" } },
+#   { tag_name:"link", attributes: { sizes: "72x72", rel:"apple-touch-icon", href:"https://dato-images.imgix.net/72/favicon.png?w=72&h=72" } },
+#   { tag_name:"link", attributes: { sizes: "76x76", rel:"apple-touch-icon", href:"https://dato-images.imgix.net/72/favicon.png?w=76&h=76" } },
+#   { tag_name:"link", attributes: { sizes: "114x114", rel:"apple-touch-icon", href:"https://dato-images.imgix.net/72/favicon.png?w=114&h=114" } },
+#   { tag_name:"link", attributes: { sizes: "120x120", rel:"apple-touch-icon", href:"https://dato-images.imgix.net/72/favicon.png?w=120&h=120" } },
+#   { tag_name:"link", attributes: { sizes: "144x144", rel:"apple-touch-icon", href:"https://dato-images.imgix.net/72/favicon.png?w=144&h=144" } },
+#   { tag_name:"link", attributes: { sizes: "152x152", rel:"apple-touch-icon", href:"https://dato-images.imgix.net/72/favicon.png?w=152&h=152" } },
+#   { tag_name:"link", attributes: { sizes: "180x180", rel:"apple-touch-icon", href:"https://dato-images.imgix.net/72/favicon.png?w=180&h=180" } },
+#   { tag_name:"meta", attributes: { name: "msapplication-square70x70logo", content:"https://dato-images.imgix.net/72/favicon.png?w=70&h=70" } },
+#   { tag_name:"meta", attributes: { name: "msapplication-square150x150logo", content:"https://dato-images.imgix.net/72/favicon.png?w=150&h=150" } },
+#   { tag_name:"meta", attributes: { name: "msapplication-square310x310logo", content:"https://dato-images.imgix.net/72/favicon.png?w=310&h=310" } },
+#   { tag_name:"meta", attributes: { name: "msapplication-square310x150logo", content:"https://dato-images.imgix.net/72/favicon.png?w=310&h=150" } },
+#   { tag_name:"meta", attributes: { name: "application-name", content:"Alban Bike Bags" } }
+# ]
 ```
 
 ---
 
 ### How to use meta tags in your Jekyll website
 
-In your `dato.config.rb` file you can simply dump all the tags in the frontmatter:
+In your `dato.config.rb` file you can dump the meta tags in the frontmatter of your Jekyll posts or as data files:
 
 ```ruby
 # dato.config.rb
 
+# Create a YAML data file to store global data about the site
+create_data_file(
+  "src/_data/settings.yml", 
+  :yaml,
+  favicon_meta_tags: dato.site.favicon_meta_tags
+)
+
+# Dump all the blog posts
 dato.blog_posts.each do |article|
   directory "_posts" do
     create_post "#{article.slug}.md" do
@@ -62,7 +94,6 @@ dato.blog_posts.each do |article|
         title: article.title,
         seo_meta_tags: article.seo_meta_tags
       )
-
       content(article.content)
     end
   end
@@ -78,6 +109,9 @@ And in your Jekyll views, transform the data into proper HTML tags:
 <html>
 <head>
   <!-- ... -->
+  {% for tag in site.data.settings.favicon_meta_tags %}
+    {{ tag | tagify }}
+  {% endfor %}
   {% for tag in page.seo_meta_tags %}
     {{ tag | tagify }}
   {% endfor %}
@@ -88,7 +122,7 @@ And in your Jekyll views, transform the data into proper HTML tags:
 </html>
 ```
 
-You can place the `tagify` liquid filter inside your project `_plugins` directory:
+Where `tagify` is a custom liquid filter you can put inside your project `_plugins` directory:
 
 ```ruby
 # _plugins/tagify.rb

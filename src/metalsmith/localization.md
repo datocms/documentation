@@ -10,39 +10,41 @@ Just as explained in the product overview, DatoCMS is totally agnostic in terms 
 Within your `dato.config.rb` file, you can easily switch between your locales like this:
 
 ```javascript
-# dato.config.js
+// dato.config.js
 
-I18n.locale = 'en'
-dato.blog_posts.first.title  // => "Hello world!"
+module.exports = (dato, root, i18n) => {
+  i18n.locale = 'en';
+  dato.blogPosts[0].title;  // => "Hello world!"
 
-I18n.locale = 'it'
-dato.blog_posts.first.title   // => "Ciao mondo!"
+  i18n.locale = 'it';
+  dato.blogPosts[0].title   // => "Ciao mondo!"
+};
 ```
 
-You can also iterate over your locales with `I18n.available_locales`:
+You can also iterate over your locales with `i18n.availableLocales`:
 
 ```javascript
-# dato.config.js
+// dato.config.js
 
 module.exports = (dato, root, i18n) => {
 
-  // inside a "post" directory...
-  root.directory("post", (dir) => {
+  // iterate over all the administrative area languages...
+  i18n.availableLocales.forEach((locale) => {
 
-    // ...iterate over the "Blog post" records...
+    // iterate over the "Blog post" records...
     dato.blogPosts.forEach((blogPost) => {
 
       // ...and create a markdown file for each article!
-      root.createPost(`${blogPost.slug}.md`, 'yaml', {
+      postsDir.createPost(`${blogPost.slug}-${locale}.md`, 'yaml', {
         frontmatter: {
           title: blogPost.title,
-          type: "post",
           categories: blogPost.categories.map(cat => cat.slug),
+          language: locale,
           date: blogPost.publishedAt,
         },
         content: blogPost.content
       });
-    }
+    });
   });
-}
+};
 ```

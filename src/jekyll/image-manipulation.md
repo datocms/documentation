@@ -18,4 +18,8 @@ blog_post.cover_image.url(w: 800, h: 600, fm: :jpg)
 # => "https://dato-images.imgix.net/123/12345-heart.png?w=800&h=600&fm=jpg"
 ```
 
-Take a look at [Imgix's Image API Reference](https://docs.imgix.com/apis/url) page to see all the transformations available.
+Take a look at [Imgix's Image API Reference](https://docs.imgix.com/apis/url) page to see all the transformations available. Some trasformation names contain a dash (ie. [`border-radius`](https://docs.imgix.com/apis/url/border-and-padding/border-radius)), in this case this is the right syntax to use:
+
+```ruby
+blog_post.cover_image.url("border-radius" => 10);
+```
