@@ -8,6 +8,7 @@ const collectionMetadata = require('metalsmith-collection-metadata')
 const msIf = require('metalsmith-if');
 const htmlMinifier = require("metalsmith-html-minifier");
 const metallic = require('metalsmith-metallic');
+const headings = require("metalsmith-headings-identifier");
 const sortOn = require('sort-on');
 
 const marked = require('marked');
@@ -36,6 +37,7 @@ Metalsmith(__dirname)
   }))
   .use(metallic())
   .use(markdown())
+  .use(headings())
   .use(path({ baseDirectory: '/', directoryIndex: 'index.html' }))
   .use((files, metalsmith, done) => {
     for (var fileName in files) {

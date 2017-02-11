@@ -34,7 +34,7 @@ Instead of referencing existing records, the *embedded form* mode allows the edi
 
 Take as an example two models: each recipe has its own distinct collection of steps. Creating/editing steps inside a global collection might be cumbersome: in this case, you can just create a Links field in the *Recipe* model, and only edit the steps within the context of its recipe:
 
-<div class="small">![foo](/images/links/5.png)</div>
+<div class="smaller">![foo](/images/links/5.png)</div>
 
 ##### Inside a record, to model a group of optional fields
 
