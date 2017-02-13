@@ -59,6 +59,10 @@ Travis CI uses a `.travis.yml` file in the root of your repository to learn abou
 
 #### Jekyll
 
+```
+$ travis setup s3
+```
+
 ```yaml
 install:
   - bundle install 
@@ -73,6 +77,7 @@ deploy:
   region: "eu-west-1"
   local_dir: "build"
   skip_cleanup: true
+  acl: public_read
 ```
 
 Depending on your static generator the **Build command** and **Publish directory** field need to be filled with different values:
