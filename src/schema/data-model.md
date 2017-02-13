@@ -21,17 +21,17 @@ Each model consists of a set of <strong>fields</strong> that you define. Fields 
 
 * **Single-line string**: Ideal for titles, headings, etc.
 * **Multiple-paragraph text**: For Markdown, HTML or plain text.
-* **Rich text**: To compose your content with text, images, videos, etc. in a Medium-like manner.
+* [**Rich text**](/schema/rich-text.html): To compose your content with text, images, videos, etc. in a Medium-like manner.
 * **Integer** and **Floating-point number**: For storing integer SKUs, quantities, prices, etc.
 * **Boolean**: For storing values that have two states, e.g. yes or no, true or false etc.
 * **Date** and **DateTime**: A timestamp value for storing dates and times (ie. an event start, office opening hours).
-* **File attachment**: To store any kind of document (PDF, ZIP, etc.).
-* **Image** and **Image gallery**: To store one or more images (for sliders, carousels, etc.).
-* **Video**: To reference to an external YouTube/Vimeo video.
-* **Geolocation**: Coordinate values for storing the latitude and longitude of a physical location.
-* **SEO meta tags**: To manage a page meta title, meta description, OpenGraph cards, etc.
-* **Slug**: To generate a page permalink based on another textual field of the model.
-* **Single and multiple links**: To model relationships between content, including other models. For example, linking a blog to a category.
+* [**File attachment**](/jekyll/fields.html#file-attachment-fields): To store any kind of document (PDF, ZIP, etc.).
+* [**Image**](/jekyll/fields.html#image-fields) and [**Image gallery**](/jekyll/fields.html#image-gallery-fields): To store one or more images (for sliders, carousels, etc.).
+* [**Video**](/jekyll/fields.html#video-fields): To reference to an external YouTube/Vimeo video.
+* [**Geolocation**](/jekyll/fields.html#geolocation-fields): Coordinate values for storing the latitude and longitude of a physical location.
+* [**SEO meta tags**](/jekyll/fields.html#seo-meta-tags-fields): To manage a page meta title, meta description, OpenGraph cards, etc.
+* [**Slug**](/schema/slug-permalinks.html): To generate a page permalink based on another textual field of the model.
+* [**Single and multiple links**](/schema/links.html): To model relationships between content, including other models. For example, linking a blog to a category.
 
 <div class="small">
 ![foo](/images/data-model/2.png)

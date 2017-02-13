@@ -36,7 +36,11 @@ Metalsmith(__dirname)
     settings: 'data/settings.yml'
   }))
   .use(metallic())
-  .use(markdown())
+  .use(markdown({
+    smartypants: true,
+    gfm: true,
+    tables: true,
+  }))
   .use(headings())
   .use(path({ baseDirectory: '/', directoryIndex: 'index.html' }))
   .use((files, metalsmith, done) => {

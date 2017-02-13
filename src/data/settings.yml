@@ -13,3 +13,5 @@ categories:
     title: Integrating with Middleman
   - id: metalsmith
     title: Integrating with Metalsmith
+  - id: deploy
+    title: Deploy your website

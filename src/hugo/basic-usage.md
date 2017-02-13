@@ -11,7 +11,7 @@ Assuming you have a working NodeJS environment on your machine, you can install 
 
 ```bash
 $ npm init
-$ npm install datocms-client
+$ npm install datocms-client --save-dev
 ```
 
 The npm package exposes a CLI tool: if everything worked correctly, you should now run it and see the help banner:
