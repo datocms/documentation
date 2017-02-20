@@ -8,24 +8,17 @@ title: Deploying to Netlify
 Netlify is a very interesting service that combines a continuous deployment system with a powerful CDN optimized to host static websites. It's probably the easiest solution out there if you're exploring the world of static websites for the first time; Furthermore, their free plan is perfectly compatible with DatoCMS and allows you to publish high-performant static websites.
 
 <div class="note">
-**This guide assumes you have a working static website project on your machine integrated with DatoCMS**
+**Warning**
 
-If that's not your case, you can return to the previous sections of this documentation to see how to properly configure the DatoCMS administrative area and how to integrate DatoCMS with your favorite static website generator. 
+This guide assumes you have a working static website project on your machine integrated with DatoCMS. If that's not your case, you can return to the previous sections of this documentation to see how to properly configure the DatoCMS administrative area and how to integrate DatoCMS with your favorite static website generator. 
 </div>
 
 ### Step 1: create your Git repository
 
 Create a new repository on [GitHub](https://github.com/new). To avoid errors, do not initialize the new repository with README, license, or gitignore files. You can add these files after your project has been pushed to GitHub.
 
-Open Terminal (for Mac users) or the command prompt (for Windows and Linux users). In the terminal, initialize the local directory of your project as a Git repository.
-
 ```bash
 $ git init
-```
-
-Add the files in your new local repository. This stages them for the first commit.
-
-```bash
 $ git add .
 ```
 
@@ -39,12 +32,6 @@ At the top of your GitHub repository's Quick Setup page, click the clipboard ico
 
 ```bash
 $ git remote add origin YOUR_GITHUB_REPOSITORY_URL
-```
-
-Verify your URL:
-
-```bash
-$ git remote -v
 ```
 
 Now, it's time to push the changes in your local repository to GitHub.

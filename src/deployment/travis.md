@@ -3,6 +3,7 @@ layout: page.ejs
 category: deploy
 position: 2
 title: Deploying to S3 with Travis CI
+draft: true
 ---
 
 <div class="note">
@@ -15,15 +16,8 @@ If that's not your case, you can return to the previous sections of this documen
 
 Create a new repository on [GitHub](https://github.com/new). To avoid errors, do not initialize the new repository with README, license, or gitignore files. You can add these files after your project has been pushed to GitHub.
 
-Open Terminal (for Mac users) or the command prompt (for Windows and Linux users). In the terminal, initialize the local directory of your project as a Git repository.
-
 ```bash
 $ git init
-```
-
-Add the files in your new local repository. This stages them for the first commit.
-
-```bash
 $ git add .
 ```
 
@@ -39,23 +33,19 @@ At the top of your GitHub repository's Quick Setup page, click the clipboard ico
 $ git remote add origin YOUR_GITHUB_REPOSITORY_URL
 ```
 
-Verify your URL:
-
-```bash
-$ git remote -v
-```
-
 Now, it's time to push the changes in your local repository to GitHub.
 
 ```bash
 git push -u origin master
 ```
 
-Now that your project is up and running on GitHub, let's connect it to Netlify.
+Now that your project is up and running on GitHub, let's connect it to Travis.
 
-### Step 2: add the Travis config file to your Git repository
+### Step 2: configure Travis CI
 
-Travis CI uses a `.travis.yml` file in the root of your repository to learn about your project and how you want your builds to be executed. This config file can be very minimalistic or have a lot of customization in it. Please refer to the [official documentation](https://docs.travis-ci.com/user/customizing-the-build/) to learn about all the details.
+[Sign in to Travis CI](https://travis-ci.org/auth) with your GitHub account, accepting the GitHub access permissions confirmation. Once you're signed in, go to your profile page and enable Travis CI for the repository you want to build.
+
+The next step is to add a `.travis.yml` file to your repository. Travis CI uses this file in the root of your repository to learn about your project and how you want your builds to be executed. This config file can be very minimalistic or have a lot of customization in it. Please refer to the [official documentation](https://docs.travis-ci.com/user/customizing-the-build/) to learn about all the details.
 
 #### Jekyll
 

@@ -21,6 +21,11 @@
           <h6 class="sidebar__header">
             <a href="/"><%= settings.name %></a>
           </h6>
+          <h6 class="sidebar__search">
+            <form action="/search.html" method="get">
+              <input type="search" name="query" data-js="search-box" placeholder="Search..." />
+            </form>
+          </h6>
 
           <ul class="sidebar__navigation">
             <% settings.categories.forEach((cat) => { %>

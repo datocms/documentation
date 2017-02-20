@@ -10,6 +10,8 @@ const htmlMinifier = require("metalsmith-html-minifier");
 const metallic = require('metalsmith-metallic');
 const headings = require("metalsmith-headings-identifier");
 const sortOn = require('sort-on');
+const drafts = require('metalsmith-drafts');
+const lunr = require('lunr');
 
 const marked = require('marked');
 const tag = require('html-tag');
@@ -35,6 +37,7 @@ Metalsmith(__dirname)
   .use(metadata({
     settings: 'data/settings.yml'
   }))
+  .use(drafts())
   .use(metallic())
   .use(markdown({
     smartypants: true,
@@ -90,6 +93,32 @@ Metalsmith(__dirname)
       });
     });
 
+    done();
+  })
+  .use((files, metalsmith, done) => {
+    const index = lunr(function () {
+      this.ref('path');
+      this.field('title', { boost: 10 });
+      this.field('contents');
+      // this.pipeline.add(lunr.trimmer);
+    });
+
+    for (let fileName in files) {
+      const data = files[fileName];
+
+      if (fileName.match(/\.html$/)) {
+        index.add({
+          path: data.path,
+          contents: data.contents,
+          title: data.title,
+        });
+      }
+    }
+
+    const contents = new Buffer(JSON.stringify(index));
+    files['index.json'] = { contents: contents };
+
+    console.log("DONE");
     done();
   })
   .use(layouts({

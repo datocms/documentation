@@ -1,0 +1,39 @@
+.result
+  margin-bottom: 60px
+  text-decoration: none
+  display: block
+  color: $base-body-color
+
+  .highlighted
+    background-color: #f9e700
+
+.result__category
+  color: $light-body-color
+  line-height: 1.1
+  margin-bottom: 5px
+  display: block
+
+.result__title
+  font-size: 35px
+  font-weight: bold
+  line-height: 1.1
+  display: block
+  margin-bottom: 10px
+
+  &:hover
+    text-decoration: underline
+
+.result__content
+  height: 100px
+  display: block
+  overflow: hidden
+  position: relative
+
+  &:before
+    content: ''
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+    height: 40px
+    background: linear-gradient(180deg, rgba(white, 0), white)
