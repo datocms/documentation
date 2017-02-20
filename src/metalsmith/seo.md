@@ -50,11 +50,11 @@ seoMetaTags:
   - tagName: "meta"
     attributes:
       property: "og:image"
-      content: "https://dato-images.imgix.net/604/123-image.jpg"
+      content: "https://www.datocms-assets.com/604/123-image.jpg"
   - tagName: "meta"
     attributes:
       name: "twitter:image"
-      content: "https://dato-images.imgix.net/604/123-image.jpg"
+      content: "https://www.datocms-assets.com/604/123-image.jpg"
   - ...
 ---
 
@@ -128,16 +128,16 @@ faviconMetaTags:
     attributes:
       rel: "apple-touch-icon"
       sizes: "57x57"
-      href: "https://dato-images.imgix.net/604/123-icon.png?h=57&w=57"
+      href: "https://www.datocms-assets.com/604/123-icon.png?h=57&w=57"
   - tagName: "meta"
     attributes:
       name: "msapplication-square70x70"
-      content: "https://dato-images.imgix.net/604/123-icon.png?h=70&w=70"
+      content: "https://www.datocms-assets.com/604/123-icon.png?h=70&w=70"
   - tagName: "link"
     attributes:
       rel: "icon"
       sizes: "16x16"
-      href: "https://dato-images.imgix.net/604/123-icon.png?h=16&w=16"
+      href: "https://www.datocms-assets.com/604/123-icon.png?h=16&w=16"
       type: "image/png"
   - ...
 ```

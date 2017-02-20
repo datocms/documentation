@@ -18,7 +18,7 @@ If you want to resize your image and convert it to JPG format, you just need to 
 
 module.exports = (dato, root, i18n) => {
   dato.blogPosts[0].coverImage.url({ w: 800, h: 600, fm: 'jpg' });
-  // => "https://dato-images.imgix.net/123/12345-heart.png?w=800&h=600&fm=jpg"
+  // => "https://www.datocms-assets.com/123/12345-heart.png?w=800&h=600&fm=jpg"
 };
 ```
 

@@ -86,7 +86,7 @@ module.exports = (dato, root, i18n) => {
 This will be the content of `src/data/settings.yml`:
 
 ```yaml
-faviconMetaTags: '<link rel="apple-touch-icon" sizes="57x57" href="https://dato-images.imgix.net/604/123-favicon.png?h=57&w=57"><link rel="apple-touch-icon" sizes="60x60" ...'
+faviconMetaTags: '<link rel="apple-touch-icon" sizes="57x57" href="https://www.datocms-assets.com/604/123-favicon.png?h=57&w=57"><link rel="apple-touch-icon" sizes="60x60" ...'
 ```
 
 Then, in your layouts:

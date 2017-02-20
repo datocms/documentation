@@ -69,14 +69,14 @@ blog_post.attachment.format    # returns the extension:
                                # => "pdf"
 
 blog_post.attachment.url       # returns the file URL:
-                               # => "https://dato-images.imgix.net/123/12345-report.pdf"
+                               # => "https://www.datocms-assets.com/123/12345-report.pdf"
 
 blog_post.attachment.to_hash   # returns an hash containing all the above:
                                #
                                # => {
                                #   size: 1489134,
                                #   format: "pdf",
-                               #   url: "https://dato-images.imgix.net/123/12345-report.pdf"
+                               #   url: "https://www.datocms-assets.com/123/12345-report.pdf"
                                # }
 ```
 
@@ -106,7 +106,7 @@ blog_post.cover_image.title      # returns the image title:
                                  # => "We love our clients"
 
 blog_post.cover_image.url        # returns the file URL:
-                                 # => "https://dato-images.imgix.net/123/12345-heart.png"
+                                 # => "https://www.datocms-assets.com/123/12345-heart.png"
 
 blog_post.cover_image.to_hash    # returns an hash containing all the above:
                                  #
@@ -115,7 +115,7 @@ blog_post.cover_image.to_hash    # returns an hash containing all the above:
                                  #   format: "png",
                                  #   width: 800,
                                  #   height: 600,
-                                 #   url: "https://dato-images.imgix.net/123/12345-heart.png"
+                                 #   url: "https://www.datocms-assets.com/123/12345-heart.png"
                                  # }
 ```
 
@@ -128,7 +128,7 @@ blog_post.cover_image.to_hash    # returns an hash containing all the above:
 ```ruby
 blog_post.gallery.each do |image|
   image.title   # => "We love our clients"
-  image.url     # => "https://dato-images.imgix.net/123/12345-heart.png"
+  image.url     # => "https://www.datocms-assets.com/123/12345-heart.png"
 end
 ```
 
@@ -193,7 +193,7 @@ blog_post.seo.to_hash       # => {
                             #     format: "png",
                             #     width: 800,
                             #     height: 600,
-                            #     url: "https://dato-images.imgix.net/123/12345-heart.png"
+                            #     url: "https://www.datocms-assets.com/123/12345-heart.png"
                             #   }
                             # }
 ```
