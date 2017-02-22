@@ -5,7 +5,7 @@ position: 1
 title: Introduction
 ---
 
-In the top navigation bar of the interface of DatoCMS you can find a *Publish changes* button: your editors can use it to trigger a new publication of the static website whenever they like:
+Once you have your deployment setup, in the top navigation bar of the interface of DatoCMS you will find a *Publish changes* button: your editors will be able to request a new publication of the static website whenever they like.
 
 ![foo](/images/publish-button.png)
 
