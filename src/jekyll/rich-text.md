@@ -6,7 +6,7 @@ position: 7
 ---
 
 <div class="note">
-**Note** This guide assumes you have a basic knowledge of how Rich Text models work in DatoCMS. If this is not the case, please read [this introduction](/schema/rich-text.html) first.
+**Note** This guide assumes you have a basic knowledge of how Rich-text fields work in DatoCMS. If this is not the case, please read [this introduction](/schema/rich-text.html) first.
 </div>
 
 Suppose a `blog_post` model has a rich-text field called `content`, which in turn accepts the following models as [building-blocks](/schema/rich-text.html):
