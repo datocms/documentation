@@ -60,7 +60,7 @@ $ ./node_modules/.bin/dato dump
 
 ### The config file
 
-The `dump` command will read a file `dato.config.js` (or the file passed by the `--config` option). This file should export a function that instructs how to transform the content stored remotely on DatoCMS into local files:
+The `dump` command will read a file `dato.config.js` (or the file passed by the `--config` option). This file should export a function that instructs how to transform the content stored remotely on DatoCMS into local files.
 
 Let's watch a simple example to get started:
 
@@ -155,6 +155,6 @@ module.exports = (dato, root, i18n) => {
 }
 ```
 
-Once your `dato.config.js` is ready, just run the `dato dump` command: you should see your Jekyll project populated with content. Run `hugo -w` and enjoy!
+Once your `dato.config.js` is ready, just run the `dato dump` command: you should see your Hugo project populated with content. Run `hugo -w` and enjoy!
 
 Obviously, that's just a quick tour: you can learn all the details about how to access your records inside your config file in the following sections.
