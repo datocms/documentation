@@ -142,3 +142,21 @@ deploy:
   acl: public_read
 ```
 
+### Connect TravisCI to DatoCMS
+
+There's only one last step needed: connecting DatoCMS to TravisCI, so that everytime one of your editors press the *Publish changes* button in your administrative area, a new build process (thus a new publication of the final website) gets triggered.
+
+To do so, go to the *Admin area > Deployment settings* and select *TravisCI*:
+
+<div class="smaller">
+![foo](/images/netlify/9.png)
+</div>
+
+In the window that will appear, follow the instructions to conclude the integration:
+
+<div class="smaller">
+![foo](/images/travis/dato.png)
+</div>
+
+When everything is done, confirm the integration pressing the *Save Settings* button.
+
