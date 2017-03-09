@@ -3,7 +3,7 @@ layout: page.ejs
 category: deploy
 position: 2
 title: Deploying to S3 with Travis CI
-draft: true
+draft: false
 ---
 
 <div class="note">
@@ -12,7 +12,7 @@ draft: true
 If that's not your case, you can return to the previous sections of this documentation to see how to properly configure the DatoCMS administrative area and how to integrate DatoCMS with your favorite static website generator. 
 </div>
 
-### Step 1: create your Git repository
+### Create your Git repository
 
 Create a new repository on [GitHub](https://github.com/new). To avoid errors, do not initialize the new repository with README, license, or gitignore files. You can add these files after your project has been pushed to GitHub.
 
@@ -41,75 +41,104 @@ git push -u origin master
 
 Now that your project is up and running on GitHub, let's connect it to Travis.
 
-### Step 2: configure Travis CI
+### Enable TravisCI
 
-[Sign in to Travis CI](https://travis-ci.org/auth) with your GitHub account, accepting the GitHub access permissions confirmation. Once you're signed in, go to your profile page and enable Travis CI for the repository you want to build.
+[Sign in to Travis CI](https://travis-ci.org/auth) with your GitHub account, go to your [profile page](https://travis-ci.org/profile) and enable Travis CI for the repository you want to build.
 
-The next step is to add a `.travis.yml` file to your repository. Travis CI uses this file in the root of your repository to learn about your project and how you want your builds to be executed. This config file can be very minimalistic or have a lot of customization in it. Please refer to the [official documentation](https://docs.travis-ci.com/user/customizing-the-build/) to learn about all the details.
+![foo](/images/travis/enable.png)
+
+### Add the DatoCMS API token as environment variable
+
+Reach the TravisCI settings page of your project, and add an environment variable called `DATO_API_TOKEN` containing the read-only API token of your DatoCMS administrative area:
+
+![foo](/images/travis/env.png)
+
+You can find the API token in the *Admin area > API tokens* section:
+
+![foo](/images/api-token.png)
+
+### Configure .travis.yml
+
+The next step is to add a `.travis.yml` file to your repository. Travis CI uses this file in the root of your repository to learn about your project and how you want your builds to be executed. This step differs a lot depending on the static website generator you are using. Here we'll show you some examples to get started. 
+
+Please refer to the official TravisCI documentation to learn everything regarding [how to configure your build](https://docs.travis-ci.com/user/customizing-the-build/) and how to properly [deploy the actual website to S3](https://docs.travis-ci.com/user/deployment/s3).
 
 #### Jekyll
 
-```
-$ travis setup s3
-```
-
 ```yaml
-install:
-  - bundle install 
+language: ruby
 script:
+  # first dump all the remote content as local files
   - bundle exec dato dump
+  # then generate the website
   - bundle exec dato jekyll build
 deploy:
-  provider: "s3"
-  access_key_id: "YOUR AWS ACCESS KEY"
-  secret_access_key: "YOUR AWS SECRET KEY"
-  bucket: "YOUR BUCKET NAME"
-  region: "eu-west-1"
-  local_dir: "build"
+  provider: s3
+  access_key_id: XXX
+  secret_access_key: YYY
+  bucket: your-bucket
+  local_dir: public
   skip_cleanup: true
   acl: public_read
 ```
 
-Depending on your static generator the **Build command** and **Publish directory** field need to be filled with different values:
+#### Hugo
 
-| SSG        | Build command                                       | Publish directory |
-|------------|-----------------------------------------------------|-------------------|
-| Jekyll     | `bundle exec dato dump && bundle exec jekyll build` | `public/`         |
-| Hugo       | `dato dump && hugo`                                 | `public/`         |
-| Middleman  | `bundle exec middleman build`                       | `build/`          |
-| Metalsmith | `dato dump node index.js`                           | `build/`          |
-| Hexo       | `dato dump && hexo generate`                        | `public/`         |
+```yaml
+language: node_js
+sudo: required
+before_script:
+  # download latest version of hugo
+  - wget https://github.com/spf13/hugo/releases/download/v0.19/hugo_0.19-64bit.deb
+  # install it
+  - sudo dpkg -i hugo*.deb
+script:
+  # first dump all the remote content as local files
+  - ./node_modules/.bin/dato dump
+  # then generate the website
+  - hugo
+deploy:
+  provider: s3
+  access_key_id: XXX
+  secret_access_key: YYY
+  bucket: your-bucket
+  local_dir: public
+  skip_cleanup: true
+  acl: public_read
+```
 
-### Step 3: connect Netlify to DatoCMS
+#### Middleman
 
-There's only one last step needed: connecting DatoCMS to Netlify, so that everytime one of your editors press the *Publish changes* button in your administrative area, a new build process (thus a new publication of the final website) gets triggered.
+```yaml
+language: ruby
+script:
+  - bundle exec middleman build
+deploy:
+  provider: s3
+  access_key_id: XXX
+  secret_access_key: YYY
+  bucket: your-bucket
+  local_dir: build
+  skip_cleanup: true
+  acl: public_read
+```
 
-To do so, go to the *Admin area > Deployment settings* and select *Netlify*:
+#### Metalsmith
 
-<div class="smaller">
-![foo](/images/netlify/9.png)
-</div>
+```yaml
+language: node_js
+script:
+  # first dump all the remote content as local files
+  - ./node_modules/.bin/dato dump
+  # then generate the website
+  - node index.js
+deploy:
+  provider: s3
+  access_key_id: XXX
+  secret_access_key: YYY
+  bucket: your-bucket
+  local_dir: build
+  skip_cleanup: true
+  acl: public_read
+```
 
-On the new window that pops up, click on "Grant Access" to allow DatoCMS to setup the auto-deploy meachanism for you:
-
-<div class="smaller">
-![foo](/images/netlify/10.png)
-</div>
-
-Select the Netlify site that you want to link to DatoCMS:
-
-<div class="smaller">
-![foo](/images/netlify/11.png)
-</div>
-
-DatoCMS will configure a number of bi-directional hooks for you:
-
-<div class="smaller">
-![foo](/images/netlify/12.png)
-</div>
-
-When everything is done, confirm the integration pressing the *Save Settings* button:
-
-<div class="small">
-![foo](/images/netlify/13.png)
-</div>

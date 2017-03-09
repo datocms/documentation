@@ -81,7 +81,7 @@ Depending on your static generator the **Build command** and **Publish directory
 | Jekyll     | `bundle exec dato dump && bundle exec jekyll build` | `public/`         |
 | Hugo       | `dato dump && hugo`                                 | `public/`         |
 | Middleman  | `bundle exec middleman build`                       | `build/`          |
-| Metalsmith | `dato dump node index.js`                           | `build/`          |
+| Metalsmith | `dato dump && node index.js`                        | `build/`          |
 | Hexo       | `dato dump && hexo generate`                        | `public/`         |
 
 In the *Advanced Settings* tab, make sure you add your DatoCMS read-only token as a `DATO_API_TOKEN` environment variable:
