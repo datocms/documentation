@@ -86,7 +86,8 @@ machine:
     version: 6.7.0
 dependencies:
   override:
-    - yarn
+    # if your project uses Yarn as package manager, replace "npm install" with "yarn"
+    - npm install
     # download latest version of hugo
     - wget https://github.com/spf13/hugo/releases/download/v0.19/hugo_0.19-64bit.deb
     # install it
@@ -123,9 +124,10 @@ deployment:
 machine:
   node:
     version: 6.7.0
-dependencies:
-  override:
-    - yarn
+# if your project uses Yarn as package manager, uncomment these lines:
+# dependencies:
+#   override:
+#     - yarn
 test:
   override:
     # first dump all the remote content as local files

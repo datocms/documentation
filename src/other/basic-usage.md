@@ -1,19 +1,20 @@
 ---
 layout: page.ejs
-category: metalsmith
+category: other
 position: 2
 title: Basic usage
 ---
 
 ### Installation
 
-Inside your Metalsmith project, you can install the `datocms-client` package by running these commands:
+Once you have a working NodeJS environment in your machine, inside your website project you can install the `datocms-client` package by running these commands:
 
 ```bash
+$ npm init
 $ npm install datocms-client --save-dev
 ```
 
-If everything worked correctly, you should now run dato and see something like this:
+If everything worked correctly, you should now run `dato` and see something like this:
 
 ```bash
 $ ./node_modules/.bin/dato
@@ -22,7 +23,6 @@ Usage:
   dato -h | --help
   dato --version
 ```
-
 
 The main command the `dato` CLI tool exposes is `dump`, which is the one you're going to use to fetch the records from our API and transform them into local files.
 
@@ -135,8 +135,6 @@ module.exports = (dato, root, i18n) => {
 };
 ```
 
-The above structure is exactly what is needed by the [metalsmith-markdown](https://github.com/segmentio/metalsmith-markdown) and [metalsmith-collections](https://github.com/segmentio/metalsmith-collections) plugins.
-
 Now that you know how you can create local files, the final step is to start generating them with data coming from DatoCMS. The first argument called `dato` is available exactly for this purpose:
 
 ```javascript
@@ -165,6 +163,6 @@ module.exports = (dato, root, i18n) => {
 };
 ```
 
-Once your `dato.config.js` is ready, just run the `dato dump` command: you should see your Metalsmith project populated with new files.
+Once your `dato.config.js` is ready, just run the `dato dump` command: you should see your  project folder populated with new files.
 
 Obviously, that's just a quick tour: you can learn all the details about how to access your records inside your config file in the following sections.
