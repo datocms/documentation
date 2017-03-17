@@ -59,7 +59,7 @@ You can find the API token in the *Admin area > API tokens* section:
 
 ### Configure .travis.yml
 
-The next step is to add a `.travis.yml` file to your repository. Travis CI uses this file in the root of your repository to learn about your project and how you want your builds to be executed. This step differs a lot depending on the static website generator you are using. Here we'll show you some examples to get started. 
+The next step is to add a `.travis.yml` file to your repository. Travis CI uses this file in the root of your repository to learn about your project and how you want your builds to be executed. How this file needs to be structured differs a lot depending on the static website generator you are using. Here we'll show you some examples to get started. 
 
 Please refer to the official TravisCI documentation to learn everything regarding [how to configure your build](https://docs.travis-ci.com/user/customizing-the-build/) and how to properly [deploy the actual website to S3](https://docs.travis-ci.com/user/deployment/s3).
 
