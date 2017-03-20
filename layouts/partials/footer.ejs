@@ -11,9 +11,19 @@
             <% } %>
             </div>
         </div>
+        <div class="contribute">
+          <div class="wrap">
+            <strong>Something is missing in the docs?</strong>
+            Submit an <a target="_blank" href="https://github.com/datocms/documentation/issues/new">issue</a> or
+            <a target="_blank" href="https://github.com/datocms/documentation/tree/master/src/<%= originalFilename %>">propose a change</a> on Github!
+          </div>
+        </div>
       </div>
     </div>
     <script src="/assets/all.js"></script>
+    <script type="text/javascript">
+      $crisp=[];CRISP_WEBSITE_ID="f6c597e6-eda0-477a-ac60-9abea56354eb";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.im/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
+    </script>
     <% if (environment === 'development') { %>
       <script src="http://localhost:35729/livereload.js"></script>
     <% } else { %>

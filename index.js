@@ -39,13 +39,19 @@ Metalsmith(__dirname)
   }))
   .use(drafts())
   .use(metallic())
-  .use(markdown({
-    smartypants: true,
-    gfm: true,
-    tables: true,
-  }))
+  .use(markdown({ smartypants: true, gfm: true, tables: true }))
   .use(headings())
   .use(path({ baseDirectory: '/', directoryIndex: 'index.html' }))
+  .use((files, metalsmith, done) => {
+    for (let fileName in files) {
+      files[fileName] = Object.assign(
+        {},
+        files[fileName],
+        { originalFilename: files[fileName].filename }
+      );
+    }
+    done();
+  })
   .use((files, metalsmith, done) => {
     for (var fileName in files) {
       var data = files[fileName];
