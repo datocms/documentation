@@ -11,13 +11,16 @@
             <% } %>
             </div>
         </div>
-        <div class="contribute">
-          <div class="wrap">
-            <strong>Something is missing in the docs?</strong>
-            Submit an <a target="_blank" href="https://github.com/datocms/documentation/issues/new">issue</a> or
-            <a target="_blank" href="https://github.com/datocms/documentation/tree/master/src/<%= originalFilename %>">propose a change</a> on Github!
+
+        <% if (typeof(originalFilename) === "string") { %>
+          <div class="contribute">
+            <div class="wrap">
+              <strong>Something is missing in the docs?</strong>
+              Submit an <a target="_blank" href="https://github.com/datocms/documentation/issues/new">issue</a> or
+              <a target="_blank" href="https://github.com/datocms/documentation/tree/master/src/<%= originalFilename %>">propose a change</a> on Github!
+            </div>
           </div>
-        </div>
+        <% } %>
       </div>
     </div>
     <script src="/assets/all.js"></script>
