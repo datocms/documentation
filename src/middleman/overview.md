@@ -29,7 +29,12 @@ $ bundle install
 Once installed, you can activate the plugin in your `config.rb`:
 
 ```ruby
-activate :dato
+activate :dato, live_reload: true
+
+# enable livereload on development
+configure :development do
+  activate :livereload
+end
 ```
 
 The plugin reads your DatoCMS API token from a `.env` file (just make sure not to publish it on Github):
@@ -62,7 +67,11 @@ The same object is also available in your config file. To create multiple pages 
 # config.rb
 
 # activate middleman-dato plugin
-activate :dato
+activate :dato, live_reload: true
+
+configure :development do
+  activate :livereload
+end
 
 # due to how middleman 4 collections work (http://bit.ly/2jHZTI9), 
 # always use `dato` inside a `.tap` method block, like this:
