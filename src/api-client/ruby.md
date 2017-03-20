@@ -5,10 +5,10 @@ title: Ruby client
 layout: page.ejs
 ---
 
-We released a Ruby gem to make it easy to programmatically read/create/edit/destroy DatoCMS records. Add this line to your application's Gemfile and then install the gem running `bundle install` within your terminal:
+We released a Ruby gem to make it easy to programmatically read/create/edit/destroy DatoCMS records. Add this line to your application's `Gemfile` and then install the gem running `bundle install` within your terminal:
 
 ```ruby
-gem 'dato'
+gem "dato"
 ```
 
 <div class="note">
@@ -63,7 +63,7 @@ $ ruby import.rb
 We can also inspect the fields contained in the model:
 
 ```
-# create a new Article record
+# obtain all the fields of the model
 pp client.fields.all("7149")
 
 # Output:
