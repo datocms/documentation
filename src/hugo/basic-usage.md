@@ -32,7 +32,7 @@ The main command the `dato` CLI tool exposes is `dump`, which is the one you're 
 You can invoke the command like this:
 
 ```bash
-$ ./node_modules/.bin/dato dump --token=SITE_READONLY_API_TOKEN
+$ ./node_modules/.bin/dato dump --token=READONLY_API_TOKEN
 ```
 
 You can find your API token in the *Admin area > API tokens* section:
