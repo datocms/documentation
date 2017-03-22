@@ -215,7 +215,7 @@ client.itemTypes.create(resourceAttributes)
 client.itemTypes.update(itemTypeId, resourceAttributes)
 
 // Return all the models of the administrative area
-client.itemTypes.all
+client.itemTypes.all()
 
 // Return a specific model
 client.itemTypes.find(itemTypeId)
@@ -230,7 +230,7 @@ client.itemTypes.destroy(itemTypeId)
 client.users.create(resourceAttributes)
 
 // Return all the editors of the administrative area
-client.users.all
+client.users.all()
 
 // Return a specific editor
 client.users.find(userId)
@@ -238,4 +238,3 @@ client.users.find(userId)
 // Destroy an existing editor
 client.users.destroy(userId)
 ```
-
