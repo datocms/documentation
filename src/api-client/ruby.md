@@ -141,6 +141,23 @@ pp client.items.create(
 
 As you can see, we use the helper method `client.upload_image` to pass DatoCMS the image to upload.
 
+### Multi-language fields
+
+If localization is enabled on some field, the format of the payload changes a little bit, as you need to pass an hash representing the value of the field for each of the locales you setup in your administrative area:
+
+```ruby
+# create a new Article record
+pp client.items.create(
+  item_type: "7149",
+  title: {
+    en: "My first article!",
+    it: "Il mio primo articolo!"
+  },
+  content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed eiusmod.",
+  cover_image: client.upload_image("http://i.giphy.com/NXOF5rlaSXdAc.gif")
+)
+```
+
 ### List of client methods
 
 Here's the complete list of methods available to you:
