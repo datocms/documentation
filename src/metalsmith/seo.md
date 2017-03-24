@@ -61,7 +61,15 @@ seoMetaTags:
 This is the page content, yay!!
 ```
 
-Meta tags are generated from record's *SEO meta tags* field and the global SEO settings for the administrative area. If the record doesn't have a *SEO meta tags* field, the method tries to guess reasonable values by inspecting the other fields of the record (single-line strings and images).
+Meta tags are generated merging the values present in the record's *SEO meta tags* field together with the *Global SEO settings* you can configure under *Content > Settings*:
+
+<div class="smaller">
+  ![foo](/images/seo/global-seo.png)
+</div>
+
+If the record doesn't have a *SEO meta tags* field, the method tries to guess reasonable values by inspecting the other fields of the record (single-line strings and images).
+
+Your page title will be composed concatenating the title of the record together with the *Title suffix* setting. If the total length of the title exceeds 60 characters, the suffix will be omitted.
 
 In your Metalsmith template (in this example `layouts/about.ejs`), you can generate proper HTML tags from this structure like this:
 
@@ -106,7 +114,13 @@ Metalsmith(__dirname)
 
 ### Favicon meta tags
 
-Similarly, you can also get desktop, iOS, Android and Windows Phone favicon meta tags with the `dato.site.faviconMetaTags` method:
+Under the *Content > Settings* section you can also configure your website favicon:
+
+<div class="smaller">
+  ![foo](/images/seo/favicon.png)
+</div>
+
+You can get desktop, iOS, Android and Windows Phone favicon meta tags with the `dato.site.faviconMetaTags` method:
 
 ```javascript
 // dato.config.js

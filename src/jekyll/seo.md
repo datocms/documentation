@@ -33,13 +33,27 @@ dato.blog_posts.first.seo_meta_tags
 # ]
 ```
 
-Meta tags are generated from record's *SEO meta tags* field and the global SEO settings for the administrative area. If the record doesn't have a *SEO meta tags* field, the method tries to guess reasonable values inspecting the other fields of the record (single-line strings and images).
+Meta tags are generated merging the values present in the record's *SEO meta tags* field together with the *Global SEO settings* you can configure under *Content > Settings*:
+
+<div class="smaller">
+  ![foo](/images/seo/global-seo.png)
+</div>
+
+If the record doesn't have a *SEO meta tags* field, the method tries to guess reasonable values by inspecting the other fields of the record (single-line strings and images).
+
+Your page title will be composed concatenating the title of the record together with the *Title suffix* setting. If the total length of the title exceeds 60 characters, the suffix will be omitted.
 
 ---
 
 ### Favicon meta tags
 
-Similarly, you can also get desktop, iOS, Android and Windows Phone favicon meta tags with the `dato.site.favicon_meta_tags` helper:
+Under the *Content > Settings* section you can also configure your website favicon:
+
+<div class="small">
+  ![foo](/images/seo/favicon.png)
+</div>
+
+You can get desktop, iOS, Android and Windows Phone favicon meta tags with the `dato.site.favicon_meta_tags` helper:
 
 ```ruby
 # dato.config.rb
