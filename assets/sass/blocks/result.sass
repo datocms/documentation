@@ -12,6 +12,7 @@
   line-height: 1.1
   margin-bottom: 5px
   display: block
+  font-size: 20px
 
 .result__title
   font-size: 35px
@@ -24,10 +25,13 @@
     text-decoration: underline
 
 .result__content
-  height: 100px
+  height: 150px
   display: block
   overflow: hidden
   position: relative
+  font-family: Merriweather
+  font-size: 17px
+  line-height: 1.8
 
   &:before
     content: ''
@@ -37,3 +41,12 @@
     right: 0
     height: 40px
     background: linear-gradient(180deg, rgba(white, 0), white)
+
+.results__loading
+  font-size: 25px
+  font-family: Merriweather
+  line-height: 1.8
+
+  a
+    font-weight: bold
+    color: desaturate(darken($primary-color, 10%), 10%)
