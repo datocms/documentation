@@ -25,11 +25,11 @@ Each model consists of a set of <strong>fields</strong> that you define. Fields 
 * **Integer** and **Floating-point number**: For storing integer SKUs, quantities, prices, etc.
 * **Boolean**: For storing values that have two states, e.g. yes or no, true or false etc.
 * **Date** and **DateTime**: A timestamp value for storing dates and times (ie. an event start, office opening hours).
-* [**File attachment**](/jekyll/fields.html#file-attachment-fields): To store any kind of document (PDF, ZIP, etc.).
-* [**Image**](/jekyll/fields.html#image-fields) and [**Image gallery**](/jekyll/fields.html#image-gallery-fields): To store one or more images (for sliders, carousels, etc.).
-* [**Video**](/jekyll/fields.html#video-fields): To reference to an external YouTube/Vimeo video.
-* [**Geolocation**](/jekyll/fields.html#geolocation-fields): Coordinate values for storing the latitude and longitude of a physical location.
-* [**SEO meta tags**](/jekyll/fields.html#seo-meta-tags-fields): To manage a page meta title, meta description, OpenGraph cards, etc.
+* [**File attachment**](/other/fields.html#file-attachment-fields): To store any kind of document (PDF, ZIP, etc.).
+* [**Image**](/other/fields.html#image-fields) and [**Image gallery**](/other/fields.html#image-gallery-fields): To store one or more images (for sliders, carousels, etc.).
+* [**Video**](/other/fields.html#video-fields): To reference to an external YouTube/Vimeo video.
+* [**Geolocation**](/other/fields.html#geolocation-fields): Coordinate values for storing the latitude and longitude of a physical location.
+* [**SEO meta tags**](/other/fields.html#seo-meta-tags-fields): To manage a page meta title, meta description, OpenGraph cards, etc.
 * [**Slug**](/schema/slug-permalinks.html): To generate a page permalink based on another textual field of the model.
 * [**Single and multiple links**](/schema/links.html): To model relationships between content, including other models. For example, linking a blog to a category.
 
