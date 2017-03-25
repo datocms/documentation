@@ -93,7 +93,7 @@ blog_post.cover_image.url        # returns the file URL:
                                  # => "https://www.datocms-assets.com/123/12345-heart.png"
 
 blogPost.coverImage.url(         # returns the image URL, cropped at 150x150px:
-  w: 150,                        # => "https://www.datocms-assets.com/123/12345-heart.png"
+  w: 150,                        # => "https://www.datocms-assets.com/123/12345-heart.png?w=150&h=150&fit=crop"
   h: 150,
   fit: "crop",
 )    
