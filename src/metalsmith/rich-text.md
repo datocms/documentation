@@ -67,7 +67,7 @@ Then, in your `layouts/article.ejs`, you can present it this way:
     <% } else if (record.item_type.api_key === "blog_post_gallery_block") { %>
       <div class="gallery">
         <% record.gallery.forEach((image) => { %>
-          <img src="<%= image.url %>" alt="<%= image.alt %>" title="<%= image.title %>" />
+          <img src="<%= image.url() %>" alt="<%= image.alt %>" title="<%= image.title %>" />
         <% }) %>
       </div>
     <% } %>

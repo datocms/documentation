@@ -59,17 +59,17 @@ Most field types return scalar values (integers, booleans, strings, etc.), but s
 ### File attachment fields
 
 
-*File attachment* fields expose the following methods:
+*File attachment* fields expose the following methods. The `.url()` method is the most important one, as it returns the full URL of the file.
 
 ```ruby
+blog_post.attachment.url       # returns the file URL:
+                               # => "https://www.datocms-assets.com/123/12345-report.pdf"
+
 blog_post.attachment.size      # returns the filesize in bytes:
                                # => 1489134
 
 blog_post.attachment.format    # returns the extension:
                                # => "pdf"
-
-blog_post.attachment.url       # returns the file URL:
-                               # => "https://www.datocms-assets.com/123/12345-report.pdf"
 
 blog_post.attachment.to_hash   # returns an hash containing all the above:
                                #
@@ -84,9 +84,18 @@ blog_post.attachment.to_hash   # returns an hash containing all the above:
 
 ### Image fields
 
-*Image fields* share all the methods of *file attachment* fields, but they also expose some additional methods:
+*Image fields* share all the methods of *file attachment* fields, but they also expose some additional methods. The `.url()` method is the most important one, as it returns the full URL of the image, and can take a number of image transformation parameters (see the [Image Manipulation](./image-manipulation.html) chapter for all for the details).
 
 ```ruby
+blog_post.cover_image.url        # returns the file URL:
+                                 # => "https://www.datocms-assets.com/123/12345-heart.png"
+
+blogPost.coverImage.url(         # returns the image URL, cropped at 150x150px:
+  w: 150,                        # => "https://www.datocms-assets.com/123/12345-heart.png"
+  h: 150,
+  fit: "crop",
+)    
+
 blog_post.cover_image.size       # returns the filesize in bytes:
                                  # => 168131
 
@@ -104,9 +113,6 @@ blog_post.cover_image.alt        # returns the image alternative text:
 
 blog_post.cover_image.title      # returns the image title:
                                  # => "We love our clients"
-
-blog_post.cover_image.url        # returns the file URL:
-                                 # => "https://www.datocms-assets.com/123/12345-heart.png"
 
 blog_post.cover_image.to_hash    # returns an hash containing all the above:
                                  #

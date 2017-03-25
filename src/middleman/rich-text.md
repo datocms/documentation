@@ -38,7 +38,7 @@ A rich-text field works much like a [*multiple links* field](/middleman/links.ht
     <% elsif record.item_type.api_key == "blog_post_gallery_block" %>
       <div class="gallery">
         <%= record.gallery.each do |image| %>
-          <img src="<%= image.url %>" alt="<%= image.alt %>" title="<%= image.title %>" />
+          <img src="<%= image.url() %>" alt="<%= image.alt %>" title="<%= image.title %>" />
         <% end %>
       </div>
     <% end %>

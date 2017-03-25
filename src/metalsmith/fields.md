@@ -64,17 +64,17 @@ Most field types return scalar values (integers, booleans, strings, etc.), but s
 ### File attachment fields
 
 
-*File attachment* fields expose the following methods:
+*File attachment* fields expose the following methods. The `.url()` method is the most important one, as it returns the full URL of the file.
 
 ```javascript
+blogPost.attachment.url()     // returns the file URL:
+                              // => "https://www.datocms-assets.com/123/12345-report.pdf"
+
 blogPost.attachment.size      // returns the filesize in bytes:
                               // => 1489134
 
 blogPost.attachment.format    // returns the extension:
                               // => "pdf"
-
-blogPost.attachment.url       // returns the file URL:
-                              // => "https://www.datocms-assets.com/123/12345-report.pdf"
 
 blogPost.attachment.toMap()   // returns an hash containing all the above:
                               //
@@ -89,9 +89,18 @@ blogPost.attachment.toMap()   // returns an hash containing all the above:
 
 ### Image fields
 
-*Image fields* share all the methods of *file attachment* fields, but they also expose some additional methods:
+*Image fields* share all the methods of *file attachment* fields, but they also expose some additional methods. The `.url()` method is the most important one, as it returns the full URL of the image, and can take a number of image transformation parameters (see the [Image Manipulation](./image-manipulation.html) chapter for all for the details).
 
 ```javascript
+blogPost.coverImage.url()    // returns the image URL:
+                             // => "https://www.datocms-assets.com/123/12345-heart.png"
+
+blogPost.coverImage.url({    // returns the image URL, cropped at 150x150px:
+  w: 150,                    // => "https://www.datocms-assets.com/123/12345-heart.png"
+  h: 150,
+  fit: "crop",
+})    
+
 blogPost.coverImage.size     // returns the filesize in bytes:
                              // => 168131
 
@@ -109,9 +118,6 @@ blogPost.coverImage.alt      // returns the image alternative text:
 
 blogPost.coverImage.title    // returns the image title:
                              // => "We love our clients"
-
-blogPost.coverImage.url      // returns the file URL:
-                             // => "https://www.datocms-assets.com/123/12345-heart.png"
 
 blogPost.coverImage.toMap()  // returns an hash containing all the above:
                              //
@@ -133,7 +139,7 @@ blogPost.coverImage.toMap()  // returns an hash containing all the above:
 ```javascript
 blogPost.gallery.forEach(image => {
   image.title;   // => "We love our clients"
-  image.url;     // => "https://www.datocms-assets.com/123/12345-heart.png"
+  image.url();   // => "https://www.datocms-assets.com/123/12345-heart.png"
 })
 ```
 
