@@ -79,7 +79,7 @@ create_post "_posts/article.md" do
 end
 ```
 
-If you need to place a collection of posts within a folder, you can use the `directory` method, so that every time the `dump` command is executed, previous content of the directory will be erased:
+If you need to place a collection of posts within a folder, you can use the `directory` method, so that every time the `dump` command is executed, **previous content of the directory will be erased**:
 
 ```ruby
 directory "_posts" do
