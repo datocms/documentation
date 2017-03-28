@@ -147,6 +147,30 @@ blogPost.gallery.forEach(image => {
 
 ---
 
+### Color fields
+
+*Color* fields expose the following methods:
+
+```javascript
+blogPost.color.red         // => 255
+blogPost.color.green       // => 127
+blogPost.color.blue        // => 0
+blogPost.color.alpha       // => 1.0
+blogPost.color.rgb         // => "rgb(255, 127, 0)"
+blogPost.color.hex         // => "#ff7f00"
+
+blogPost.color.toMap()     // => {
+                           //  red: 255,
+                           //  green: 127,
+                           //  blue: 0,
+                           //  alpha: 1.0,
+                           //  rgb: "rgb(255, 127, 0)",
+                           //  hex: "#ff7f00"
+                           // }
+```
+
+---
+
 ### Geolocation fields
 
 *Geolocation* fields expose the following methods:

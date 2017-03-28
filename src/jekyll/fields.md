@@ -142,6 +142,30 @@ end
 
 ---
 
+### Color fields
+
+*Color* fields expose the following methods:
+
+```javascript
+blog_post.color.red        # => 255
+blog_post.color.green      # => 127
+blog_post.color.blue       # => 0
+blog_post.color.alpha      # => 1.0
+blog_post.color.rgb        # => "rgb(255, 127, 0)"
+blog_post.color.hex        # => "#ff7f00"
+
+blog_post.color.to_hash    # => {
+                           #  red: 255,
+                           #  green: 127,
+                           #  blue: 0,
+                           #  alpha: 1.0,
+                           #  rgb: "rgb(255, 127, 0)",
+                           #  hex: "#ff7f00"
+                           # }
+```
+
+---
+
 ### Geolocation fields
 
 *Geolocation* fields expose the following methods:

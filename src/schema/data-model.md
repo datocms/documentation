@@ -28,6 +28,7 @@ Each model consists of a set of <strong>fields</strong> that you define. Fields 
 * [**File attachment**](/other/fields.html#file-attachment-fields): To store any kind of document (PDF, ZIP, etc.).
 * [**Image**](/other/fields.html#image-fields) and [**Image gallery**](/other/fields.html#image-gallery-fields): To store one or more images (for sliders, carousels, etc.).
 * [**Video**](/other/fields.html#video-fields): To reference to an external YouTube/Vimeo video.
+* [**Color**](/other/fields.html#color-fields): For storing colors (with or without alpha channel).
 * [**Geolocation**](/other/fields.html#geolocation-fields): Coordinate values for storing the latitude and longitude of a physical location.
 * [**SEO meta tags**](/other/fields.html#seo-meta-tags-fields): To manage a page meta title, meta description, OpenGraph cards, etc.
 * [**Slug**](/schema/slug-permalinks.html): To generate a page permalink based on another textual field of the model.
