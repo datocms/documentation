@@ -1,12 +1,14 @@
 <%- include('partials/header') %>
 
-<div class="page">
-  <% if (typeof(category) === "string") { %>
-    <h2 class="page__category"><%= settings.categories.find(({ id }) => id === category).title %></h2>
-  <% } %>
-  <h1 class="page__title"><%= title %></h1>
-  <div class="page__content">
-    <%- contents %>
+<div class="wrap">
+  <div class="page">
+    <% if (typeof(category) === "string") { %>
+      <h2 class="page__category"><%= settings.categories.find(({ id }) => id === category).title %></h2>
+    <% } %>
+    <h1 class="page__title"><%= title %></h1>
+    <div class="page__content">
+      <%- contents %>
+    </div>
   </div>
 </div>
 

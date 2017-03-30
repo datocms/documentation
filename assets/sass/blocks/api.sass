@@ -1,0 +1,38 @@
+.api__block
+  display: flex
+
+.api__block__left,
+.api__block__right
+  flex: 1
+  border-bottom: 1px solid $border-color
+
+.api__block__left
+  padding: 30px
+
+.api__block__right
+  background: #2f3029
+  color: #f8f8f2
+  overflow: auto
+  padding: 30px
+  border-bottom: 1px solid darken(#2f3029, 10%)
+
+  .hljs
+    border-radius: 4px
+    font-family: "Source Code Pro", Menlo, monospace
+    font-size: 14px
+    line-height: 1.2
+
+.api__block__left__title
+  font-size: 20px
+  line-height: 1.3
+  margin-bottom: 30px
+  font-weight: 500
+
+.api__block__right__code
+  margin-bottom: 30px
+
+  &:last-child
+    margin-bottom: 0
+
+.api__block__right__code__title
+  margin-bottom: 15px

@@ -13,10 +13,15 @@
   },
   "dependencies": {
     "highlight-words-core": "^1.0.3",
+    "json-schema-ref-parser": "^3.1.2",
+    "jstransformer-ejs": "^0.0.3",
     "metalsmith-drafts": "^0.0.1",
     "metalsmith-headings-identifier": "^0.0.11",
+    "metalsmith-in-place": "^2.0.1",
     "metalsmith-metallic": "^2.0.1",
     "metalsmith-path": "^0.2.0",
+    "node-fetch": "^1.6.3",
+    "object.entries": "^1.0.4",
     "preact": "^7.2.0",
     "query-string": "^4.3.2",
     "sort-on": "^1.3.0"

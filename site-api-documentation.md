@@ -1,9 +1,3 @@
----
-layout: page.ejs
-position: 1
-title: API
----
-
 ## <a name="resource-session"></a>Session
 
 A session is required to access to read-and-write API endpoints
@@ -464,6 +458,7 @@ A site represents a specific Dato backend instance
 | **[relationships:account:data:type](#resource-account)** | *string* | JSON API type field<br/> **pattern:** <code>^account$</code> | `"account"` |
 | **[relationships:item_types:data](#resource-account)** | *array* | The list of site item types | `[{"type":"item_type","id":"post"}]` |
 | **relationships:menu_items:data** | *array* | The list of site menu items | `[{"type":"menu_item","id":"34"}]` |
+| **relationships:users:data** | *array* | The list of site users | `[{"type":"user","id":"312"}]` |
 | **type** | *string* | JSON API type field<br/> **pattern:** <code>^site$</code> | `"site"` |
 
 ### Site Create
@@ -553,6 +548,14 @@ HTTP/1.1 200 OK
           {
             "type": "menu_item",
             "id": "34"
+          }
+        ]
+      },
+      "users": {
+        "data": [
+          {
+            "type": "user",
+            "id": "312"
           }
         ]
       },
@@ -739,6 +742,14 @@ HTTP/1.1 200 OK
           {
             "type": "menu_item",
             "id": "34"
+          }
+        ]
+      },
+      "users": {
+        "data": [
+          {
+            "type": "user",
+            "id": "312"
           }
         ]
       },
@@ -1208,11 +1219,13 @@ A item type is a specific kind of editable content
 | ------- | ------- | ------- | ------- |
 | **attributes:api_key** | *string* |  | `"post"` |
 | **attributes:name** | *string* |  | `"Blog post"` |
+| **attributes:ordering_direction** | *nullable string* | <br/> **one of:**`null` or `"asc"` or `"desc"` | `"desc"` |
 | **attributes:singleton** | *boolean* |  | `true` |
 | **attributes:sortable** | *boolean* |  | `true` |
 | **id** | *string* | ID of item type | `"post"` |
 | **relationships:fields:data** | *array* |  | `[{"type":"field","id":"124"}]` |
 | **relationships:menu_item:data** | *string* | JSON API data |  |
+| **relationships:ordering_field:data** | *string* | JSON API data |  |
 | **relationships:singleton_item:data** | *string* | JSON API data |  |
 | **type** | *string* | JSON API type field<br/> **pattern:** <code>^item_type$</code> | `"item_type"` |
 
@@ -1230,8 +1243,10 @@ POST /item-types
 | ------- | ------- | ------- | ------- |
 | **data:attributes:api_key** | *string* |  | `"post"` |
 | **data:attributes:name** | *string* |  | `"Blog post"` |
+| **data:attributes:ordering_direction** | *nullable string* | <br/> **one of:**`null` or `"asc"` or `"desc"` | `"desc"` |
 | **data:attributes:singleton** | *boolean* |  | `true` |
 | **data:attributes:sortable** | *boolean* |  | `true` |
+| **data:relationships:ordering_field:data** | *string* | JSON API data |  |
 | **data:type** | *string* | JSON API type field<br/> **pattern:** <code>^item_type$</code> | `"item_type"` |
 
 
@@ -1247,7 +1262,13 @@ $ curl -n -X POST https://site-api.datocms.com/item-types \
       "name": "Blog post",
       "api_key": "post",
       "singleton": true,
-      "sortable": true
+      "sortable": true,
+      "ordering_direction": "desc"
+    },
+    "relationships": {
+      "ordering_field": {
+        "data": null
+      }
     }
   }
 }' \
@@ -1270,7 +1291,8 @@ HTTP/1.1 201 Created
       "name": "Blog post",
       "api_key": "post",
       "singleton": true,
-      "sortable": true
+      "sortable": true,
+      "ordering_direction": "desc"
     },
     "relationships": {
       "menu_item": {
@@ -1286,6 +1308,9 @@ HTTP/1.1 201 Created
             "id": "124"
           }
         ]
+      },
+      "ordering_field": {
+        "data": null
       }
     }
   },
@@ -1309,9 +1334,11 @@ PUT /item-types/{item_type_id}
 | ------- | ------- | ------- | ------- |
 | **data:attributes:api_key** | *string* |  | `"post"` |
 | **data:attributes:name** | *string* |  | `"Blog post"` |
+| **data:attributes:ordering_direction** | *nullable string* | <br/> **one of:**`null` or `"asc"` or `"desc"` | `"desc"` |
 | **data:attributes:singleton** | *boolean* |  | `true` |
 | **data:attributes:sortable** | *boolean* |  | `true` |
 | **data:id** | *string* | ID of item type | `"post"` |
+| **data:relationships:ordering_field:data** | *string* | JSON API data |  |
 | **data:type** | *string* | JSON API type field<br/> **pattern:** <code>^item_type$</code> | `"item_type"` |
 
 
@@ -1328,7 +1355,13 @@ $ curl -n -X PUT https://site-api.datocms.com/item-types/$ITEM_TYPE_ID \
       "name": "Blog post",
       "api_key": "post",
       "singleton": true,
-      "sortable": true
+      "sortable": true,
+      "ordering_direction": "desc"
+    },
+    "relationships": {
+      "ordering_field": {
+        "data": null
+      }
     }
   }
 }' \
@@ -1351,7 +1384,8 @@ HTTP/1.1 200 OK
       "name": "Blog post",
       "api_key": "post",
       "singleton": true,
-      "sortable": true
+      "sortable": true,
+      "ordering_direction": "desc"
     },
     "relationships": {
       "menu_item": {
@@ -1367,6 +1401,9 @@ HTTP/1.1 200 OK
             "id": "124"
           }
         ]
+      },
+      "ordering_field": {
+        "data": null
       }
     }
   }
@@ -1405,7 +1442,8 @@ HTTP/1.1 200 OK
         "name": "Blog post",
         "api_key": "post",
         "singleton": true,
-        "sortable": true
+        "sortable": true,
+        "ordering_direction": "desc"
       },
       "relationships": {
         "menu_item": {
@@ -1421,6 +1459,9 @@ HTTP/1.1 200 OK
               "id": "124"
             }
           ]
+        },
+        "ordering_field": {
+          "data": null
         }
       }
     }
@@ -1459,7 +1500,8 @@ HTTP/1.1 200 OK
       "name": "Blog post",
       "api_key": "post",
       "singleton": true,
-      "sortable": true
+      "sortable": true,
+      "ordering_direction": "desc"
     },
     "relationships": {
       "menu_item": {
@@ -1475,6 +1517,9 @@ HTTP/1.1 200 OK
             "id": "124"
           }
         ]
+      },
+      "ordering_field": {
+        "data": null
       }
     }
   }
@@ -1513,7 +1558,8 @@ HTTP/1.1 200 OK
       "name": "Blog post",
       "api_key": "post",
       "singleton": true,
-      "sortable": true
+      "sortable": true,
+      "ordering_direction": "desc"
     },
     "relationships": {
       "menu_item": {
@@ -1529,6 +1575,9 @@ HTTP/1.1 200 OK
             "id": "124"
           }
         ]
+      },
+      "ordering_field": {
+        "data": null
       }
     }
   }
@@ -1929,7 +1978,8 @@ A item is a single instance of a item type
 | **id** | *string* | ID of item | `"4235"` |
 | **relationships:item_type:data:id** | *string* | ID of item type | `"post"` |
 | **[relationships:item_type:data:type](#resource-item_type)** | *string* | JSON API type field<br/> **pattern:** <code>^item_type$</code> | `"item_type"` |
-| **[type](#resource-item_type)** | *string* | JSON API type field<br/> **pattern:** <code>^item$</code> | `"item"` |
+| **[relationships:last_editor:data](#resource-item_type)** | *string* | JSON API data |  |
+| **type** | *string* | JSON API type field<br/> **pattern:** <code>^item$</code> | `"item"` |
 
 ### Item Validate existing item
 
@@ -1996,6 +2046,9 @@ HTTP/1.1 200 OK
           "type": "item_type",
           "id": "post"
         }
+      },
+      "last_editor": {
+        "data": null
       }
     }
   },
@@ -2007,7 +2060,8 @@ HTTP/1.1 200 OK
         "name": "Blog post",
         "api_key": "post",
         "singleton": true,
-        "sortable": true
+        "sortable": true,
+        "ordering_direction": "desc"
       },
       "relationships": {
         "menu_item": {
@@ -2023,6 +2077,9 @@ HTTP/1.1 200 OK
               "id": "124"
             }
           ]
+        },
+        "ordering_field": {
+          "data": null
         }
       }
     }
@@ -2093,6 +2150,9 @@ HTTP/1.1 200 OK
           "type": "item_type",
           "id": "post"
         }
+      },
+      "last_editor": {
+        "data": null
       }
     }
   },
@@ -2104,7 +2164,8 @@ HTTP/1.1 200 OK
         "name": "Blog post",
         "api_key": "post",
         "singleton": true,
-        "sortable": true
+        "sortable": true,
+        "ordering_direction": "desc"
       },
       "relationships": {
         "menu_item": {
@@ -2120,6 +2181,9 @@ HTTP/1.1 200 OK
               "id": "124"
             }
           ]
+        },
+        "ordering_field": {
+          "data": null
         }
       }
     }
@@ -2190,6 +2254,9 @@ HTTP/1.1 201 Created
           "type": "item_type",
           "id": "post"
         }
+      },
+      "last_editor": {
+        "data": null
       }
     }
   },
@@ -2201,7 +2268,8 @@ HTTP/1.1 201 Created
         "name": "Blog post",
         "api_key": "post",
         "singleton": true,
-        "sortable": true
+        "sortable": true,
+        "ordering_direction": "desc"
       },
       "relationships": {
         "menu_item": {
@@ -2217,6 +2285,9 @@ HTTP/1.1 201 Created
               "id": "124"
             }
           ]
+        },
+        "ordering_field": {
+          "data": null
         }
       }
     }
@@ -2279,6 +2350,9 @@ HTTP/1.1 200 OK
           "type": "item_type",
           "id": "post"
         }
+      },
+      "last_editor": {
+        "data": null
       }
     }
   }
@@ -2338,6 +2412,9 @@ HTTP/1.1 200 OK
             "type": "item_type",
             "id": "post"
           }
+        },
+        "last_editor": {
+          "data": null
         }
       }
     }
@@ -2384,6 +2461,9 @@ HTTP/1.1 200 OK
           "type": "item_type",
           "id": "post"
         }
+      },
+      "last_editor": {
+        "data": null
       }
     }
   }
@@ -2427,6 +2507,9 @@ HTTP/1.1 200 OK
           "type": "item_type",
           "id": "post"
         }
+      },
+      "last_editor": {
+        "data": null
       }
     }
   }

@@ -39,7 +39,7 @@
                     <li class="sidebar__navigation__page">
                       <a
                         href="<%= page.path %>"
-                        <%- path === page.path ? 'class="is-active"' : '' %>
+                        <%- (typeof(path) === "string" && path === page.path) ? 'class="is-active"' : '' %>
                       >
                         <%= page.title %>
                       </a>
@@ -48,6 +48,25 @@
                 </ul>
               </li>
             <% }) %>
+            <li
+              class="<%- (typeof(path) === "string" && path === '/api/reference.html') ? 'sidebar__navigation__category is-active' : 'sidebar__navigation__category' %>"
+            >
+              <a href="/api/reference.html">
+                API Reference
+              </a>
+              <ul class="sidebar__navigation__pages">
+                <% Object.entries(apiSchema.properties).sort((a, b) => a[1].position - b[1].position).forEach(([resource, schema]) => { %>
+                  <% links = schema.links.filter(l => !l.private) %>
+                  <% if (links.length > 0) { %>
+                    <li class="sidebar__navigation__page">
+                      <a href="/api/reference.html#<%= resource %>">
+                        <%= schema.title %>
+                      </a>
+                    </li>
+                  <% } %>
+                <% }) %>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>
@@ -62,4 +81,3 @@
             <a href="#" class="mobile-header__menu" data-js="toggleSidebar"></a>
           </div>
         </div>
-        <div class="wrap">
