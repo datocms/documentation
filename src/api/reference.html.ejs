@@ -5,6 +5,32 @@ path: /api/reference.html
 ---
 
 <div class="api">
+  <section class="api_intro">
+    <h1 class="api__intro__title">DatoCMS JSON Schema Documentation</h1>
+
+    <div class="api__intro__body">
+      <h2>Generation</h2>
+
+      This documentation is generated from the
+      <a href="https://site-api.datocms.com/docs/site-api-hyperschema.json">
+        DatoCMS JSON Schema
+      </a>.
+
+      <h2>Schema Versions</h2>
+      The site schema is available as
+      <a
+       href="https://site-api.datocms.com/docs/site-api-documentation.html"
+      >HTML</a>&nbsp;
+      and&nbsp;
+      <a
+        href="https://site-api.datocms.com/docs/site-api-hyperschema.json"
+      >JSON</a>
+      .
+    </div>
+  </section>
+
+  <hr />
+
   <% Object.entries(apiSchema.properties).sort((a, b) => a[1].position - b[1].position).forEach(([resource, schema]) => { %>
     <% links = schema.links.filter(l => !l.private) %>
     <% if (links.length > 0) { %>
