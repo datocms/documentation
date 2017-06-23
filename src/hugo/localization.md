@@ -32,7 +32,7 @@ module.exports = (dato, root, i18n) => {
 
   i18n.withLocale('it', () => {
     i18n.locale;              // => "it"
-    dato.blogPosts[0].title;  // => "Hello world!"
+    dato.blogPosts[0].title;  // => "Ciao mondo!"
   });
 
   i18n.locale;              // => "en"

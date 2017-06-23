@@ -31,9 +31,9 @@ If you need to temporarily switch locale, and then restore the previous value, y
 I18n.locale = :en
 dato.blog_posts.first.title     # => "Hello world!"
 
-I18n.withLocale('it') do
+I18n.with_locale('it') do
   I18n.locale;                  # => :it
-  dato.blog_posts.first.title   # => "Hello world!"
+  dato.blog_posts.first.title   # => "Ciao mondo!"
 end
 
 I18n.locale                     # => :en
