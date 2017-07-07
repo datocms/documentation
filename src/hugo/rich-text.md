@@ -1,21 +1,21 @@
 ---
 layout: page.ejs
-title: Rich-text fields
+title: Modular content fields
 category: hugo
 position: 7
 ---
 
 <div class="note">
-**Note** This guide assumes you have a basic knowledge of how Rich-text fields work in DatoCMS. If this is not the case, please read [this introduction](/schema/rich-text.html) first.
+**Note** This guide assumes you have a basic knowledge of how *Modular content* fields work in DatoCMS. If this is not the case, please read [this introduction](/schema/modular-content.html) first.
 </div>
 
-Suppose a `blog_post` model has a rich-text field called `content`, which in turn accepts the following models as [building-blocks](/schema/rich-text.html):
+Suppose a `blog_post` model has a modular content field called `content`, which in turn accepts the following models as [building-blocks](/schema/modular-content.html):
 
 * Model `blog_post_text_block`: made of a `text` field (*multi-paragraph text*);
 * Model `blog_post_quote_block`: made of a `quote` field (*multi-paragraph text*) and `author` field (*single-line string*);
 * Model `blog_post_gallery_block`: made of a `gallery` field (*image gallery*);
 
-A rich-text field works much like a [*multiple links* field](/metalsmith/links.html), as it returns an array of the inner records. In your `dato.config.js` file you can dump a rich-text field inside the frontmatter of a post like this:
+A modular content field works much like a [*multiple links* field](/metalsmith/links.html), as it returns an array of the inner records. In your `dato.config.js` file you can dump a modular content field inside the frontmatter of a post like this:
 
 ```javascript
 // dato.config.js

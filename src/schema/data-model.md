@@ -21,7 +21,7 @@ Each model consists of a set of <strong>fields</strong> that you define. Fields 
 
 * **Single-line string**: Ideal for titles, headings, etc.
 * **Multiple-paragraph text**: For Markdown, HTML or plain text.
-* [**Rich text**](/schema/rich-text.html): To compose your content with text, images, videos, etc. in a Medium-like manner.
+* [**Modular content**](/schema/modular-content.html): To compose your content with text, images, videos, etc. in a Medium-like manner.
 * **Integer** and **Floating-point number**: For storing integer SKUs, quantities, prices, etc.
 * **Boolean**: For storing values that have two states, e.g. yes or no, true or false etc.
 * **Date** and **DateTime**: A timestamp value for storing dates and times (ie. an event start, office opening hours).
