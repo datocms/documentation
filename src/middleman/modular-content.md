@@ -1,12 +1,12 @@
 ---
 layout: page.ejs
-title: modular-content fields
+title: Modular content fields
 category: middleman
 position: 7
 ---
 
 <div class="note">
-**Note** This guide assumes you have a basic knowledge of how modular-content fields work in DatoCMS. If this is not the case, please read [this introduction](/schema/modular-content.html) first.
+**Note** This guide assumes you have a basic knowledge of how Modular content fields work in DatoCMS. If this is not the case, please read [this introduction](/schema/modular-content.html) first.
 </div>
 
 Suppose a `blog_post` model has a modular-content field called `content`, which in turn accepts the following models as [building-blocks](/schema/modular-content.html):
