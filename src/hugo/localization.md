@@ -63,6 +63,7 @@ module.exports = (dato, root, i18n) => {
   i18n.locale = 'it';
 
   dato.blogPosts[0].title;  // => "Hello world!"
+}
 ```
 
 Here's an complete example that creates multiple versions of your articles, one for each available locale:

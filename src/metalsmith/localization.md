@@ -67,6 +67,7 @@ module.exports = (dato, root, i18n) => {
   i18n.locale = 'it';
 
   dato.blogPosts[0].title;  // => "Hello world!"
+}
 ```
 
 
