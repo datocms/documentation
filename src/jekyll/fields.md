@@ -86,8 +86,6 @@ blog_post.attachment.to_hash   # returns an hash containing all the above:
 
 *Image fields* share all the methods of *file attachment* fields, but they also expose some additional methods. The `.url()` method is the most important one, as it returns the full URL of the image, and can take a number of image transformation parameters (see the [Image Manipulation](./image-manipulation.html) chapter for all for the details).
 
-**Important:** Due to how image manipulation works in DatoCMS, if you need to upload SVG files, you need to add to your model a *File attachment* field instead of an *Image* field.
-
 ```ruby
 blog_post.cover_image.url        # returns the file URL:
                                  # => "https://www.datocms-assets.com/123/12345-heart.png"
