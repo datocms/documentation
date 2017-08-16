@@ -32,7 +32,7 @@ I18n.locale = :en
 dato.blog_posts.first.title     # => "Hello world!"
 
 I18n.with_locale('it') do
-  I18n.locale;                  # => :it
+  I18n.locale                   # => :it
   dato.blog_posts.first.title   # => "Ciao mondo!"
 end
 

@@ -51,6 +51,20 @@ module.exports = (dato, root, i18n) => {
 };
 ```
 
+You can also configure the config file so that if a particular field in a specific locale is not empty, it will try to return the value for other languages.
+In the following example, if a blog post does not have a title in italian, it will use the english one:
+
+```js
+module.exports = (dato, root, i18n) => {
+  i18n.fallbacks = {
+    it: ['en']
+  };
+
+  i18n.locale = 'it';
+
+  dato.blogPosts[0].title;  // => "Hello world!"
+```
+
 Here's an complete example that creates multiple versions of your articles, one for each available locale:
 
 
