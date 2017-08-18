@@ -143,11 +143,61 @@ As you can see, we use the helper method `client.upload_image` to pass DatoCMS t
 
 Note: ensure that the URL passed passed to `client.upload_image` is escaped correctly:
 
-```
+```ruby
 require "uri"
 
 escaped = URI.escape(url)
 client.upload_image(escaped)
+```
+
+## Retrieving records
+
+To retrieve the stored records:
+
+```ruby
+records = client.items.all
+```
+
+If you want to retrieve just the records of a specific model (ie. `article`):
+
+```ruby
+records = client.items.all("filter[type]" => "article")
+```
+
+You can also pass the model ID instead of the model API identifier.
+
+## Linking records
+
+If you have a record with some a link field (ie. an article linked to its category), during the creation you need to pass the ID of the linked record:
+
+```ruby
+category = client.items.create(
+  item_type: "7150"
+  name: "My category"
+)
+
+article = client.items.create(
+  item_type: "7149",
+  title: "My first article!",
+  content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed eiusmod.",
+  category: category.id
+)
+```
+
+If you have a "multiple links" field, then you need to pass the array of IDs:
+
+```ruby
+category = client.items.create(
+  item_type: "7150"
+  name: "My category"
+)
+
+article = client.items.create(
+  item_type: "7149",
+  title: "My first article!",
+  content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed eiusmod.",
+  categories: [ category.id ]
+)
 ```
 
 ### Multi-language fields

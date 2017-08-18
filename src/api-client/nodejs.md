@@ -139,6 +139,8 @@ client.uploadImage('http://i.giphy.com/NXOF5rlaSXdAc.gif')
 
 As you can see, we use the helper method `client.uploadImage` to pass DatoCMS the metadata of the image to associate to the record.
 
+## Retrieving records
+
 To retrieve the stored records:
 
 ```js
@@ -187,7 +189,7 @@ client.items.create({
     itemType: '7149',
     title: 'My first article!',
     content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed eiusmod.',
-    category: [category.id]
+    categories: [category.id]
   });
 })
 .then((record) => console.log(record));
