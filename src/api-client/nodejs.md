@@ -139,6 +139,60 @@ client.uploadImage('http://i.giphy.com/NXOF5rlaSXdAc.gif')
 
 As you can see, we use the helper method `client.uploadImage` to pass DatoCMS the metadata of the image to associate to the record.
 
+To retrieve the stored records:
+
+```js
+client.items.all()
+.then((records) => console.log(records));
+```
+
+If you want to retrieve just the records of a specific model (ie. `article`):
+
+```js
+client.items.all({ 'filter[type]': 'article' })
+.then((records) => console.log(records));
+```
+
+You can also pass the model ID instead of the model API identifier.
+
+## Linking records
+
+If you have a record with some a link field (ie. an article linked to its category), during the creation you need to pass the ID of the linked record:
+
+```js
+client.items.create({
+  itemType: '7150',
+  name: 'My category',
+})
+.then((category) => {
+  return client.items.create({
+    itemType: '7149',
+    title: 'My first article!',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed eiusmod.',
+    category: category.id
+  });
+})
+.then((record) => console.log(record));
+```
+
+If you have a "multiple links" field, then you need to pass the array of IDs:
+
+```js
+client.items.create({
+  itemType: '7150',
+  name: 'My category',
+})
+.then((category) => {
+  return client.items.create({
+    itemType: '7149',
+    title: 'My first article!',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed eiusmod.',
+    category: [category.id]
+  });
+})
+.then((record) => console.log(record));
+```
+
 ### Multi-language fields
 
 If localization is enabled on some field, the format of the payload changes a little bit, as you need to pass an hash representing the value of the field for each of the locales you setup in your administrative area:
