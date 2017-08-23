@@ -141,7 +141,7 @@ module.exports = (dato, root, i18n) => {
     dato.blogPosts.forEach((blogPost) => {
 
       // ...and create a markdown file for each article!
-      root.createPost(`${blogPost.slug}.md`, "yaml", {
+      dir.createPost(`${blogPost.slug}.md`, "yaml", {
         frontmatter: {
           title: blogPost.title,
           type: "post",
