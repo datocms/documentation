@@ -5,7 +5,7 @@ position: 3
 title: Integrate search results on your website
 ---
 
-### Step 1: Obtain an API token
+### Obtaining an API token
 
 Once you've configured your DatoCMS administrative area, from your website, you can make AJAX requests to our JSON API to present relevant results to your visitors.
 
@@ -28,7 +28,7 @@ curl 'https://site-api.datocms.com/search-results?q=florence' \
 
 If the output is `HTTP/1.1 200 OK`, you're good to go!
 
-### Step 2: Presenting results
+### Performing searches
 
 To make it easy to integrate DatoCMS Site Search with your website, we make available a small JS library called [`datocms-search`](https://github.com/datocms/datocms-search) that you can add at the bottom of your pages:
 
@@ -41,7 +41,7 @@ To make it easy to integrate DatoCMS Site Search with your website, we make avai
     ...
 
     <!-- at the end of your page insert the following line -->
-    <script src="https://unpkg.com/datocms-search"></script>
+    <script src="https://unpkg.com/datocms-search@0.1.3/dist/datocms-search.base.js"></script>
   </body>
 </html>
 ```

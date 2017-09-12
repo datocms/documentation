@@ -18,6 +18,6 @@ categories:
   - id: deploy
     title: Deploy your website
   - id: search
-    title: Site Search
+    title: DatoCMS Site Search (beta)
   - id: api-client
     title: API Clients
