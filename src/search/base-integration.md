@@ -5,9 +5,9 @@ position: 3
 title: Integrating search on your site
 ---
 
-### Obtaining an API token
-
 Once you've configured your DatoCMS administrative area, from your website, you can make AJAX requests to our JSON API to present relevant results to your visitors.
+
+#### Obtaining an API token
 
 To do that, first you need to generate an API token with the proper permissions. Go to *Settings > Roles* and create a new role with just the *Can perform Site Search API calls* option checked:
 
