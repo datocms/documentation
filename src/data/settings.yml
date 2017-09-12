@@ -17,5 +17,7 @@ categories:
     title: Integrating with other generators
   - id: deploy
     title: Deploy your website
+  - id: search
+    title: Site Search
   - id: api-client
     title: API Clients
