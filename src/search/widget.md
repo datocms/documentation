@@ -43,7 +43,7 @@ You can now call `client.addWidget()` specifying the CSS Selector where the widg
 
 Of course, feel free to change the styling of the widget overriding our default CSS styles.
 
-### Language selection
+#### Language selection
 
 If your site is multi-language, you can configure the widget to present them:
 
@@ -64,7 +64,7 @@ This will be the final result:
 
 ![foo](/images/search/locales_widget.png)
 
-### Other options
+#### Other options
 
 The widget can be further customized with the following options:
 

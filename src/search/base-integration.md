@@ -2,7 +2,7 @@
 layout: page.ejs
 category: search
 position: 3
-title: Integrate search results on your website
+title: Integrating search on your site
 ---
 
 ### Obtaining an API token
@@ -27,6 +27,8 @@ curl 'https://site-api.datocms.com/search-results?q=florence' \
 ```
 
 If the output is `HTTP/1.1 200 OK`, you're good to go!
+
+---
 
 ### Performing searches
 
