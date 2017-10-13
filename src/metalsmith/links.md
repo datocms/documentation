@@ -16,7 +16,7 @@ In this case, `blog_post.author` will return the linked `user` record (or `null`
 // dato.config.js
 
 module.exports = (dato, root, i18n) => {
-  dato.blogPosts[0].author.full_name;   // => "Mark Smith"
+  dato.blogPosts[0].author.fullName;   // => "Mark Smith"
 
   dato.blogPosts[0].related.forEach(relatedPost => {
     relatedPost.title;                  // => "Another post!"
