@@ -43,7 +43,7 @@ To make it easy to integrate DatoCMS Site Search with your website, we make avai
     ...
 
     <!-- at the end of your page insert the following line -->
-    <script src="https://unpkg.com/datocms-search@0.1.3/dist/datocms-search.base.js"></script>
+    <script src="https://unpkg.com/datocms-search@0.1.5/dist/datocms-search.base.js"></script>
   </body>
 </html>
 ```
@@ -51,7 +51,7 @@ To make it easy to integrate DatoCMS Site Search with your website, we make avai
 The library does not need any external dependencies, and can also be used with Webpack/Browserify. It exposes a `DatoCmsSearch` class that you can use to retrieve search results:
 
 ```js
-var client = new DatoCmsSearch("YOUR_API_TOKEN_HERE");
+var client = new DatoCmsSearch("YOUR_API_TOKEN_HERE", "production");
 
 client.search("florence")
   .then(function(response) {

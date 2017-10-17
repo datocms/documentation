@@ -15,13 +15,13 @@ To use it, add our JS and CSS in your page:
 <html>
   <head>
     ...
-    <link rel="stylesheet" href="https://unpkg.com/datocms-search@0.1.3/styles/index.css" />
+    <link rel="stylesheet" href="https://unpkg.com/datocms-search@0.1.5/styles/index.css" />
   </head>
   <body>
     ...
 
     <!-- at the end of your page insert the following line -->
-    <script src="https://unpkg.com/datocms-search@0.1.3/dist/datocms-search.widget.js"></script>
+    <script src="https://unpkg.com/datocms-search@0.1.5/dist/datocms-search.widget.js"></script>
   </body>
 </html>
 ```
@@ -32,10 +32,10 @@ You can now call `client.addWidget()` specifying the CSS Selector where the widg
 <body>
   <div id="search-container"></div>
 
-  <script src="https://unpkg.com/datocms-search@0.1.3/dist/datocms-search.widget.js"></script>
+  <script src="https://unpkg.com/datocms-search@0.1.5/dist/datocms-search.widget.js"></script>
 
   <script>
-    var client = new DatoCmsSearch("YOUR_API_TOKEN");
+    var client = new DatoCmsSearch("YOUR_API_TOKEN", "production");
     client.addWidget("#search-container");
   </script>
 </body>
@@ -48,7 +48,7 @@ Of course, feel free to change the styling of the widget overriding our default 
 If your site is multi-language, you can configure the widget to present them:
 
 ```js
-var client = new DatoCmsSearch("YOUR_API_TOKEN");
+var client = new DatoCmsSearch("YOUR_API_TOKEN", "production");
 client.addWidget(
   "#search-container",
   {
