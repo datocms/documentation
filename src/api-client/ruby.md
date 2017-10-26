@@ -294,5 +294,20 @@ client.users.find(user_id)
 
 # Destroy an existing editor
 client.users.destroy(user_id)
+
+
+### Uploads ###
+
+# Create a new upload
+client.uploads.create(resource_attributes)
+
+# Return all the uploads of the administrative area
+client.uploads.all(filters = {})
+
+# Return a specific upload
+client.uploads.find(upload_id)
+
+# Destroy an existing upload
+client.uploads.destroy(upload_id)
 ```
 
