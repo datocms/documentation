@@ -44,8 +44,8 @@ blogPost.position         // returns its ordinal number in the collection
                           //
                           // => 13
 
-blogPost.parent           // returns the parent record (only if the model is a tree):
-blogPost.children         // returns the children records (only if the model is a tree):
+blogPost.parent           // returns the parent record (only if the model is a tree)
+blogPost.children         // returns the children records (only if the model is a tree)
 
 blogPost.toMap()          // returns an object containing the above, plus all the
                           // field's values:
