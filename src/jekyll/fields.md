@@ -35,9 +35,12 @@ blog_post.updated_at          # returns last modified date:
                               # => <Time value="2017-01-24 10:41:55 +0100">
 
 blog_post.position            # returns its ordinal number in the collection
-                              # (only if the model is sortable):
+                              # (only if the model is sortable or a tree):
                               #
                               # => 13
+
+blog_post.parent              # returns the parent record (only if the model is a tree)
+blog_post.chilren             # returns the children records (only if the model is a tree)
 
 blog_post.to_hash             # returns an hash containing the above, plus all the
                               # fields's values:

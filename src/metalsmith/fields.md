@@ -40,9 +40,12 @@ blogPost.updatedAt        // returns last modified date:
                           // => Fri Feb 10 2017 10:25:54 GMT+0100 (CET)
 
 blogPost.position         // returns its ordinal number in the collection
-                          // (only if the model is sortable):
+                          // (only if the model is sortable or a tree):
                           //
                           // => 13
+
+blogPost.parent           // returns the parent record (only if the model is a tree):
+blogPost.children         // returns the children records (only if the model is a tree):
 
 blogPost.toMap()          // returns an object containing the above, plus all the
                           // field's values:
