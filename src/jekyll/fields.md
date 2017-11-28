@@ -40,7 +40,7 @@ blog_post.position            # returns its ordinal number in the collection
                               # => 13
 
 blog_post.parent              # returns the parent record (only if the model is a tree)
-blog_post.chilren             # returns the children records (only if the model is a tree)
+blog_post.children            # returns the children records (only if the model is a tree)
 
 blog_post.to_hash             # returns an hash containing the above, plus all the
                               # fields's values:
@@ -54,8 +54,13 @@ blog_post.to_hash             # returns an hash containing the above, plus all t
                               # }
 ```
 
-
 Most field types return scalar values (integers, booleans, strings, etc.), but some other return more complex structures.
+
+Keep in mind that the `.toMap()` method will limit the results to a maximum depth of 3. You can change this setting passing an explicit depth:
+
+```
+blog_post.to_hash(10)   // this will go down 10 levels deep!
+```
 
 ---
 

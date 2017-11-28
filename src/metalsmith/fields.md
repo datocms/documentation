@@ -59,8 +59,13 @@ blogPost.toMap()          // returns an object containing the above, plus all th
                           // }
 ```
 
-
 Most field types return scalar values (integers, booleans, strings, etc.), but some other return more complex structures.
+
+Keep in mind that the `.toMap()` method will limit the results to a maximum depth of 3. You can change this setting passing an explicit depth:
+
+```
+blogPost.toMap(10)   // this will go down 10 levels deep!
+```
 
 ---
 
