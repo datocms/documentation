@@ -13,9 +13,9 @@ In DatoCMS you can achieve structured, rich-content editing using a specific typ
 
 The idea is to give your authors the choice to compose their content by alternating certain blocks (ie. text, images, videos, etc.), which are nothing more but "low-level" models. Authors, to compose a structured content, will be able to add and reorder these blocks as they prefer:
 
-<div class="small">![foo](/images/modular-content/4.png)</div>
+<div class="small">![foo](/images/modular-content/0.png)</div>
 
-This gives authors a lot of freedom to organise their content, much like Medium editor does, while keeping the content clean and structured:
+This gives authors a lot of freedom to organise their content, much like Medium editor does, while keeping the content clean and structured.
 
 ---
 
@@ -28,20 +28,29 @@ Suppose we have an *Article* model, and we want to add a modular content field t
 * Videos
 * and Images
 
-#### Create the "building blocks"
-
-To achieve this result, first you need to create a different model for each one of these blocks. The *Quote* model, for example, will be made of two fields: one containing the actual quote, the other containing the author.
+To achieve this result, first we create the Article model, and add a Modular content field to it:
 
 <div class="smaller">![foo](/images/modular-content/2.png)</div>
 
-#### Add the Modular content field to your model
+<div class="two">
+  <div>![foo](/images/modular-content/1.png)</div>
+  <div>![foo](/images/modular-content/3.png)</div>
+</div>
 
-Now that the basic blocks are ready, we can finally select the Article model, and add a Modular content field (you'll find it under the Text group):
+Under the Modular content field we just created, we can now add our blocks. There's a *Add new block* button for that, so we'll use it to create the Quote block:
 
-Let's name it "Content", and in the "Validations" tab, make sure to select the low-level models you previously created:
+<div class="two">
+  <div>![foo](/images/modular-content/4.png)</div>
+  <div>![foo](/images/modular-content/5.png)</div>
+</div>
 
-<div class="small">![foo](/images/modular-content/3.png)</div>
+Blocks are just a composition of fields, just like ordinary models. In our case, we want quotes to be made of two fields: one containing the actual quote, the other containing the author.
 
-#### Hiding "building-block" models from the navigation bar
+You can click on the *Settings* button on the Quote block, to edit its fields:
 
-If you create a model only to be used as building-blocks inside a Modular content field, it is perfectly safe and suggested to remove it from the navigation bar, so that they can only be accessed and created within the modular-content editor.
+<div class="smaller">![foo](/images/modular-content/6.png)</div>
+
+<div class="smaller">![foo](/images/modular-content/7.png)</div>
+
+<div class="smaller">![foo](/images/modular-content/8.png)</div>
+
