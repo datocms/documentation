@@ -1,6 +1,0 @@
-module.exports = (dato, root, i18n) => {
-  const category = dato.categories[0];
-
-  blogPost.parent;    // returns the parent record (only if the model is a tree)
-  blogPost.children;  // returns the children records (only if the model is a tree)
-}
