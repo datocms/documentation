@@ -9,7 +9,7 @@ position: 7
 **Note** This guide assumes you have a basic knowledge of how Modular content fields work in DatoCMS. If this is not the case, please read [this introduction](/schema/modular-content.html) first.
 </div>
 
-Suppose a `blog_post` model has a modular-content field called `content`, which in turn accepts the following models as [building-blocks](/schema/modular-content.html):
+Suppose a `blog_post` model has a modular-content field called `body`, which in turn accepts the following models as [building-blocks](/schema/modular-content.html):
 
 * Model `blog_post_text_block`: made of a `text` field (*multi-paragraph text*);
 * Model `blog_post_quote_block`: made of a `quote` field (*multi-paragraph text*) and `author` field (*single-line string*);
@@ -31,7 +31,7 @@ directory "_posts" do
         layout: "article",
         title: article.title,
         author: article.author.name,
-        content: article.content.to_hash
+        body: article.body.to_hash
       )
     end
   end
@@ -50,7 +50,7 @@ layout: default
     <h1>{{ page.title }}</h1>
     <p>{{ page.author }}</p>
   </header>
-  {% for record in page.content %}
+  {% for record in page.body %}
     {% if record.item_type == "blog_post_text_block" %}
       <div>
         {{ record.text }}
@@ -72,3 +72,7 @@ layout: default
   {% endfor %}
 </article>
 ```
+
+<div class="note">
+**Warning** In this example, we named the modular-content field `body`. This is intentional: do not name your modular-content field `content`, as in Jekyll this is a special attribute and you won't be able to read it in your layout!
+</div>
