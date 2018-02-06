@@ -1,0 +1,83 @@
+/index.html                         https://www.datocms.com/docs/
+
+/api/reference.html                 https://www.datocms.com/api/
+
+/api-client/nodejs.html             https://www.datocms.com/docs/import/nodejs/
+/api-client/ruby.html               https://www.datocms.com/docs/import/ruby/
+
+/deployment/circleci.html           https://www.datocms.com/docs/deployment/circleci/
+/deployment/custom.html             https://www.datocms.com/docs/deployment/custom/
+/deployment/introduction.html       https://www.datocms.com/docs/deployment/introduction/
+/deployment/netlify.html            https://www.datocms.com/docs/deployment/netlify/
+/deployment/semaphore.html          https://www.datocms.com/docs/deployment/semaphore/
+/deployment/travis.html             https://www.datocms.com/docs/deployment/travis/
+
+/gatsby/overview.html               https://www.datocms.com/docs/gatsby/
+/hugo/accessing-records.html        https://www.datocms.com/docs/hugo/accessing-records/
+/hugo/basic-usage.html              https://www.datocms.com/docs/hugo/
+/hugo/fields.html                   https://www.datocms.com/docs/hugo/fields/
+/hugo/image-manipulation.html       https://www.datocms.com/docs/hugo/image-manipulation/
+/hugo/links.html                    https://www.datocms.com/docs/hugo/links/
+/hugo/localization.html             https://www.datocms.com/docs/hugo/localization/
+/hugo/modular-content.html          https://www.datocms.com/docs/hugo/modular-content/
+/hugo/overview.html                 https://www.datocms.com/docs/hugo/
+/hugo/seo.html                      https://www.datocms.com/docs/hugo/seo/
+
+/jekyll/accessing-records.html      https://www.datocms.com/docs/jekyll/accessing-records/
+/jekyll/basic-usage.html            https://www.datocms.com/docs/jekyll/
+/jekyll/fields.html                 https://www.datocms.com/docs/jekyll/fields/
+/jekyll/image-manipulation.html     https://www.datocms.com/docs/jekyll/image-manipulation/
+/jekyll/links.html                  https://www.datocms.com/docs/jekyll/links/
+/jekyll/localization.html           https://www.datocms.com/docs/jekyll/localization/
+/jekyll/modular-content.html        https://www.datocms.com/docs/jekyll/modular-content/
+/jekyll/overview.html               https://www.datocms.com/docs/jekyll/
+/jekyll/seo.html                    https://www.datocms.com/docs/jekyll/seo/
+
+/metalsmith/accessing-records.html  https://www.datocms.com/docs/metalsmith/accessing-records/
+/metalsmith/basic-usage.html        https://www.datocms.com/docs/metalsmith/
+/metalsmith/fields.html             https://www.datocms.com/docs/metalsmith/fields/
+/metalsmith/image-manipulation.html https://www.datocms.com/docs/metalsmith/image-manipulation/
+/metalsmith/links.html              https://www.datocms.com/docs/metalsmith/links/
+/metalsmith/localization.html       https://www.datocms.com/docs/metalsmith/localization/
+/metalsmith/modular-content.html    https://www.datocms.com/docs/metalsmith/modular-content/
+/metalsmith/overview.html           https://www.datocms.com/docs/metalsmith/
+/metalsmith/seo.html                https://www.datocms.com/docs/metalsmith/seo/
+
+/middleman/accessing-records.html   https://www.datocms.com/docs/middleman/accessing-records/
+/middleman/basic-usage.html         https://www.datocms.com/docs/middleman/
+/middleman/fields.html              https://www.datocms.com/docs/middleman/fields/
+/middleman/image-manipulation.html  https://www.datocms.com/docs/middleman/image-manipulation/
+/middleman/links.html               https://www.datocms.com/docs/middleman/links/
+/middleman/localization.html        https://www.datocms.com/docs/middleman/localization/
+/middleman/modular-content.html     https://www.datocms.com/docs/middleman/modular-content/
+/middleman/overview.html            https://www.datocms.com/docs/middleman/
+/middleman/seo.html                 https://www.datocms.com/docs/middleman/seo/
+
+/other/accessing-records.html       https://www.datocms.com/docs/other/accessing-records/
+/other/basic-usage.html             https://www.datocms.com/docs/other/
+/other/fields.html                  https://www.datocms.com/docs/other/fields/
+/other/image-manipulation.html      https://www.datocms.com/docs/other/image-manipulation/
+/other/links.html                   https://www.datocms.com/docs/other/links/
+/other/localization.html            https://www.datocms.com/docs/other/localization/
+/other/modular-content.html         https://www.datocms.com/docs/other/modular-content/
+/other/overview.html                https://www.datocms.com/docs/other/
+/other/seo.html                     https://www.datocms.com/docs/other/seo/
+
+/schema/data-migration.html         https://www.datocms.com/docs/introduction/data-migration/
+/schema/data-model.html             https://www.datocms.com/docs/introduction/data-model/
+/schema/links.html                  https://www.datocms.com/docs/introduction/links/
+/schema/localization.html           https://www.datocms.com/docs/introduction/localization/
+/schema/modular-content.html        https://www.datocms.com/docs/introduction/modular-content/
+/schema/navigation-bar.html         https://www.datocms.com/docs/introduction/navigation-bar/
+/schema/single-instance.html        https://www.datocms.com/docs/introduction/single-instance/
+/schema/slug-permalinks.html        https://www.datocms.com/docs/introduction/slug-permalinks/
+
+/overview/getting-started.html      https://www.datocms.com/docs/introduction/
+
+/search/intro.html                  https://www.datocms.com/docs/search/
+/search/base-integration.html       https://www.datocms.com/docs/search/base-integration/
+/search/configuration.html          https://www.datocms.com/docs/search/configuration/
+/search/excluding-text.html         https://www.datocms.com/docs/search/excluding-text/
+/search/widget.html                 https://www.datocms.com/docs/search/widget/
+
+*                                   https://www.datocms.com/docs/

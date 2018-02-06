@@ -6,7 +6,8 @@
   "scripts": {
     "build:metalsmith": "NODE_ENV=production node index.js",
     "build:assets": "NODE_ENV=production webpack -p --config webpack.prod.config.js",
-    "build": "npm run build:metalsmith && npm run build:assets",
+    "old_build": "npm run build:metalsmith && npm run build:assets",
+    "build": "mkdir build && mv _redirects build",
     "start:assets": "NODE_ENV=development webpack-dev-server --open --content-base build/ --config webpack.dev.config.js",
     "start:metalsmith": "NODE_ENV=development node index.js",
     "start": "concurrently -p \"[{name}]\" -c \"blue,red,yellow\" -k -n metalsmith,webpack \"npm run start:metalsmith\" \"npm run start:assets\""
